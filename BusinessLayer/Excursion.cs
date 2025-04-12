@@ -36,7 +36,7 @@ namespace BusinessLayer
 
         private Excursion() { }
 
-        public Excursion(int cityId, int hotelId, decimal price, int duration, DateTime departuteDate, DateTime returnDate)
+        public Excursion(int cityId, int hotelId, decimal price, DateTime departuteDate, DateTime returnDate)
         {
             CityId = cityId;
             HotelId = hotelId;
