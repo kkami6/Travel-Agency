@@ -81,7 +81,7 @@ namespace TestingLayer
             employeesConext.Delete(lastEmp.EmployeeId);
 
             int empAfter = employeesConext.ReadAll().Count;
-            Assert.That(empBefore == empAfter, "The Delete() method does not work :(");
+            Assert.That(empBefore == empAfter + 1, "The Delete() method does not work :(");
         }
     }
 }
