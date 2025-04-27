@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{C3D19AA9-65B9-4F09-B649-E53A22128732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{C3D19AA9-65B9-4F09-B649-E53A22128732}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{8CFABF22-1725-4E18-843E-C619DBCDB8BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{8CFABF22-1725-4E18-843E-C619DBCDB8BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingLayer", "TestingLayer\TestingLayer.csproj", "{B839658E-3260-4251-A757-626761A45DE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingLayer", "TestingLayer\TestingLayer.csproj", "{B839658E-3260-4251-A757-626761A45DE1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8CFABF22-1725-4E18-843E-C619DBCDB8BC} = {8CFABF22-1725-4E18-843E-C619DBCDB8BC}
 		{C3D19AA9-65B9-4F09-B649-E53A22128732} = {C3D19AA9-65B9-4F09-B649-E53A22128732}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceManager\ServiceLayer.csproj", "{85691871-206E-4AA0-8C62-BB9E63BA5118}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceManager\ServiceLayer.csproj", "{85691871-206E-4AA0-8C62-BB9E63BA5118}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayerUpg", "PresentationLayerUpg\PresentationLayerUpg.csproj", "{B6EB90EF-5F57-428B-AC70-CECF255DB1A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
