@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             nameLabel = new Label();
             nameTxtBox = new TextBox();
             Label1 = new Label();
@@ -37,10 +38,21 @@
             ageLabel = new Label();
             statusLabel = new Label();
             createBtn = new Button();
-            UpdateBtn = new Button();
             deleteBtn = new Button();
             agePicker = new DateTimePicker();
             statusCheck = new CheckBox();
+            clientDataGridView = new DataGridView();
+            clientBindingSource = new BindingSource(components);
+            clientsContextTestsBindingSource = new BindingSource(components);
+            updateBtn = new Button();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            secondNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            familyNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)clientDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)clientBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)clientsContextTestsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // nameLabel
@@ -114,7 +126,7 @@
             // 
             // createBtn
             // 
-            createBtn.Location = new Point(168, 311);
+            createBtn.Location = new Point(140, 271);
             createBtn.Margin = new Padding(3, 4, 3, 4);
             createBtn.Name = "createBtn";
             createBtn.Size = new Size(83, 40);
@@ -123,36 +135,27 @@
             createBtn.UseVisualStyleBackColor = true;
             createBtn.Click += createBtn_Click;
             // 
-            // UpdateBtn
-            // 
-            UpdateBtn.Location = new Point(328, 311);
-            UpdateBtn.Margin = new Padding(3, 4, 3, 4);
-            UpdateBtn.Name = "UpdateBtn";
-            UpdateBtn.Size = new Size(90, 40);
-            UpdateBtn.TabIndex = 10;
-            UpdateBtn.Text = "Update";
-            UpdateBtn.UseVisualStyleBackColor = true;
-            // 
             // deleteBtn
             // 
-            deleteBtn.Location = new Point(489, 311);
+            deleteBtn.Location = new Point(484, 271);
             deleteBtn.Margin = new Padding(3, 4, 3, 4);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(90, 40);
             deleteBtn.TabIndex = 11;
             deleteBtn.Text = "Delete";
             deleteBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Click += deleteBtn_Click;
             // 
             // agePicker
             // 
             agePicker.Location = new Point(426, 44);
             agePicker.Margin = new Padding(3, 4, 3, 4);
-            agePicker.MaxDate = new DateTime(2007, 12, 31, 0, 0, 0, 0);
+            agePicker.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             agePicker.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
             agePicker.Name = "agePicker";
             agePicker.Size = new Size(222, 31);
             agePicker.TabIndex = 12;
-            agePicker.Value = new DateTime(2007, 12, 31, 0, 0, 0, 0);
+            agePicker.Value = new DateTime(2025, 5, 3, 0, 0, 0, 0);
             // 
             // statusCheck
             // 
@@ -164,17 +167,91 @@
             statusCheck.TabIndex = 13;
             statusCheck.Text = "Loyal";
             statusCheck.UseVisualStyleBackColor = true;
-            statusCheck.CheckedChanged += statusCheck_CheckedChanged;
+            // 
+            // clientDataGridView
+            // 
+            clientDataGridView.AutoGenerateColumns = false;
+            clientDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            clientDataGridView.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, secondNameDataGridViewTextBoxColumn, familyNameDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
+            clientDataGridView.DataSource = clientBindingSource;
+            clientDataGridView.Location = new Point(18, 369);
+            clientDataGridView.Margin = new Padding(2);
+            clientDataGridView.Name = "clientDataGridView";
+            clientDataGridView.RowHeadersWidth = 62;
+            clientDataGridView.Size = new Size(813, 185);
+            clientDataGridView.TabIndex = 14;
+            clientDataGridView.CellContentClick += clientDataGridView_CellContentClick;
+            // 
+            // clientBindingSource
+            // 
+            clientBindingSource.AllowNew = true;
+            clientBindingSource.DataSource = typeof(BusinessLayer.Client);
+            // 
+            // clientsContextTestsBindingSource
+            // 
+            clientsContextTestsBindingSource.DataSource = typeof(TestingLayer.ClientsContextTests);
+            // 
+            // updateBtn
+            // 
+            updateBtn.Location = new Point(308, 271);
+            updateBtn.Margin = new Padding(3, 4, 3, 4);
+            updateBtn.Name = "updateBtn";
+            updateBtn.Size = new Size(90, 40);
+            updateBtn.TabIndex = 15;
+            updateBtn.Text = "Update";
+            updateBtn.UseVisualStyleBackColor = true;
+            updateBtn.Click += updateBtn_Click;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // secondNameDataGridViewTextBoxColumn
+            // 
+            secondNameDataGridViewTextBoxColumn.DataPropertyName = "SecondName";
+            secondNameDataGridViewTextBoxColumn.HeaderText = "SecondName";
+            secondNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            secondNameDataGridViewTextBoxColumn.Name = "secondNameDataGridViewTextBoxColumn";
+            secondNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // familyNameDataGridViewTextBoxColumn
+            // 
+            familyNameDataGridViewTextBoxColumn.DataPropertyName = "FamilyName";
+            familyNameDataGridViewTextBoxColumn.HeaderText = "FamilyName";
+            familyNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            familyNameDataGridViewTextBoxColumn.Name = "familyNameDataGridViewTextBoxColumn";
+            familyNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            ageDataGridViewTextBoxColumn.MinimumWidth = 8;
+            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            ageDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.MinimumWidth = 8;
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.Width = 150;
             // 
             // ClientForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1084, 499);
+            ClientSize = new Size(925, 596);
+            Controls.Add(updateBtn);
+            Controls.Add(clientDataGridView);
             Controls.Add(statusCheck);
             Controls.Add(agePicker);
             Controls.Add(deleteBtn);
-            Controls.Add(UpdateBtn);
             Controls.Add(createBtn);
             Controls.Add(statusLabel);
             Controls.Add(ageLabel);
@@ -188,6 +265,9 @@
             Name = "ClientForm";
             Text = "Client Form";
             Load += ClientForm_Load;
+            ((System.ComponentModel.ISupportInitialize)clientDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)clientBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)clientsContextTestsBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -204,9 +284,17 @@
         private System.Windows.Forms.Label ageLabel;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Button createBtn;
-        private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.DateTimePicker agePicker;
         private System.Windows.Forms.CheckBox statusCheck;
+        private DataGridView clientDataGridView;
+        private BindingSource clientBindingSource;
+        private BindingSource clientsContextTestsBindingSource;
+        private Button updateBtn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn secondNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn familyNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
     }
 }
