@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceMana
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayerUpg", "PresentationLayerUpg\PresentationLayerUpg.csproj", "{B6EB90EF-5F57-428B-AC70-CECF255DB1A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{0DE4F9ED-0A23-4D5B-89E0-710C3A6026CD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,7 +43,6 @@ Global
 		{B6EB90EF-5F57-428B-AC70-CECF255DB1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6EB90EF-5F57-428B-AC70-CECF255DB1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6EB90EF-5F57-428B-AC70-CECF255DB1A2}.Release|Any CPU.Build.0 = Release|Any CPU
-
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
