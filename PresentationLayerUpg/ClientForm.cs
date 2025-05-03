@@ -11,23 +11,28 @@ using System.Windows.Forms;
 using ServiceLayer;
 using DataLayer;
 using Mysqlx;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace WindowsFormsApp1
 {
     public partial class ClientForm : Form
     {
+        TravelAgencyDbContext dbContext;
         Client selectedClient;
         bool updatedClient = false;
         bool deleteClient = false;
         int currentRowIndex = -1;
+        public IDb<Client, int> ClientContext;
         Manager<Client, int> ClientManager;
 
         public ClientForm()
         {
+            ClientContext = new ClientsContext(dbContext); // Assuming ClientDb implements IDb<Client, int>
+            ClientManager = new Manager<Client, int>(ClientContext);
             InitializeComponent();
-            //selectedClient = new Client();
         }
+
 
         private void createBtn_Click(object sender, EventArgs e)
         {
@@ -107,25 +112,25 @@ namespace WindowsFormsApp1
 
             //currentRowIndex = e.RowIndex;
 
-            selectedClient = new Client();
+            //selectedClient = new Client();
 
-            selectedClient.ClientId = ....Client[currentRowIndex].ClientId;
-            selectedClient.Name = .Client[currentRowIndex].Name;
-            selectedClient.SecondName = .Client[currentRowIndex].SecondName;
-            selectedClient.FamilyName = .Client[currentRowIndex].FamilyName;
-            selectedClient.Age = .Client[currentRowIndex].Age;
-            selectedClient.Status = .Client[currentRowIndex].Status;
-            //selectedClient.Excursions = .Client[currentRowIndex].Excursions;
+            //selectedClient.ClientId = ....Client[currentRowIndex].ClientId;
+            //selectedClient.Name = .Client[currentRowIndex].Name;
+            //selectedClient.SecondName = .Client[currentRowIndex].SecondName;
+            //selectedClient.FamilyName = .Client[currentRowIndex].FamilyName;
+            //selectedClient.Age = .Client[currentRowIndex].Age;
+            //selectedClient.Status = .Client[currentRowIndex].Status;
+            ////selectedClient.Excursions = .Client[currentRowIndex].Excursions;
 
-            //Update graphical components
-            nameTxtBox.Text = selectedClient.Name;
-            name2TxtBox.Text = selectedClient.SecondName;
-            name3TxtBox.Text = selectedClient.FamilyName;
-            statusCheck.Checked = selectedClient.Status;
-            agePicker.Value = selectedClient.Age;
+            ////Update graphical components
+            //nameTxtBox.Text = selectedClient.Name;
+            //name2TxtBox.Text = selectedClient.SecondName;
+            //name3TxtBox.Text = selectedClient.FamilyName;
+            //statusCheck.Checked = selectedClient.Status;
+            //agePicker.Value = selectedClient.Age;
 
-            updatedClient = false;
-            deleteBtn.Enabled = true;
+            //updatedClient = false;
+            //deleteBtn.Enabled = true;
         }
 
         private void clientDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -134,34 +139,34 @@ namespace WindowsFormsApp1
             {
                 clientDataGridView.UpdateCellValue(e.ColumnIndex, e.RowIndex);
 
-                switch (e.ColumnIndex)
-                {
-                    case 0:
-                        selectedClient.Name = .Client[e.RowIndex].Name;
-                        nameTxtBox.Text = selectedClient.Name;
-                        break;
-                    case 1:
-                        selectedClient.SecondName = .Client[e.RowIndex].SecondName;
-                        name2TxtBox.Text = selectedClient.SecondName;
-                        break;
-                    case 2:
-                        selectedClient.FamilyName = .Client[e.RowIndex].FamilyName;
-                        name3TxtBox.Text = selectedClient.FamilyName;
-                        break;
-                    case 3:
-                        selectedClient.Age = .Client[e.RowIndex].Age;
-                        agePicker.Value = selectedClient.Age;
-                        break;
-                    case 4:
-                        selectedClient.Status = .Client[e.RowIndex].Status;
-                        statusCheck.Checked = selectedClient.Status;
-                        break;
+                //switch (e.ColumnIndex)
+                //{
+                //    case 0:
+                //        selectedClient.Name = .Client[e.RowIndex].Name;
+                //        nameTxtBox.Text = selectedClient.Name;
+                //        break;
+                //    case 1:
+                //        selectedClient.SecondName = .Client[e.RowIndex].SecondName;
+                //        name2TxtBox.Text = selectedClient.SecondName;
+                //        break;
+                //    case 2:
+                //        selectedClient.FamilyName = .Client[e.RowIndex].FamilyName;
+                //        name3TxtBox.Text = selectedClient.FamilyName;
+                //        break;
+                //    case 3:
+                //        selectedClient.Age = .Client[e.RowIndex].Age;
+                //        agePicker.Value = selectedClient.Age;
+                //        break;
+                //    case 4:
+                //        selectedClient.Status = .Client[e.RowIndex].Status;
+                //        statusCheck.Checked = selectedClient.Status;
+                //        break;
 
-                    default:
-                        break;
-                }
+                //    default:
+                //        break;
+                //}
 
-                updatedClient = true;
+                //updatedClient = true;
             }
         }
 
@@ -171,8 +176,9 @@ namespace WindowsFormsApp1
             selectedClient.Name = nameTxtBox.Text;
             selectedClient.SecondName = name2TxtBox.Text;
             selectedClient.FamilyName = name3TxtBox.Text;
-            selectedClient.Age = agePicker.Value;
-            selectedClient.Status = statusCheck.Checked;
+            selectedClient.Age = DateTime.Now.Year - agePicker.Value.Year;
+            if (statusCheck.Checked) selectedClient.Status = "loyal";
+            else selectedClient.Status = "normal";
 
             ClientManager.Update(selectedClient);
 
@@ -203,7 +209,7 @@ namespace WindowsFormsApp1
 
             currentRowIndex = -1;
 
-            LoadClient();
+            LoadClients();
         }
 
         private void ClearUserInterface()
@@ -212,7 +218,7 @@ namespace WindowsFormsApp1
             name2TxtBox.Text =string.Empty;
             name3TxtBox.Text = string.Empty;
             agePicker.Value = DateTime.Now;
-            statusCheck.Checked = string.Empty;
+            statusCheck.Checked = false;
         }
         private void clientDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

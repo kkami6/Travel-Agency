@@ -28,163 +28,163 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.nameLbl = new System.Windows.Forms.Label();
-            this.nameTxtBox = new System.Windows.Forms.TextBox();
-            this.name2Lbl = new System.Windows.Forms.Label();
-            this.name3Lbl = new System.Windows.Forms.Label();
-            this.ageLbl = new System.Windows.Forms.Label();
-            this.positionLbl = new System.Windows.Forms.Label();
-            this.salaryLbl = new System.Windows.Forms.Label();
-            this.name2TxtBox = new System.Windows.Forms.TextBox();
-            this.name3TxtBox = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.positionTxtBox = new System.Windows.Forms.TextBox();
-            this.salaryTxtBox = new System.Windows.Forms.TextBox();
-            this.createBtn = new System.Windows.Forms.Button();
-            this.deleteBtn = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            nameLbl = new Label();
+            nameTxtBox = new TextBox();
+            name2Lbl = new Label();
+            name3Lbl = new Label();
+            ageLbl = new Label();
+            positionLbl = new Label();
+            salaryLbl = new Label();
+            name2TxtBox = new TextBox();
+            name3TxtBox = new TextBox();
+            dateTimePicker1 = new DateTimePicker();
+            positionTxtBox = new TextBox();
+            salaryTxtBox = new TextBox();
+            createBtn = new Button();
+            deleteBtn = new Button();
+            SuspendLayout();
             // 
             // nameLbl
             // 
-            this.nameLbl.AutoSize = true;
-            this.nameLbl.Location = new System.Drawing.Point(87, 40);
-            this.nameLbl.Name = "nameLbl";
-            this.nameLbl.Size = new System.Drawing.Size(51, 20);
-            this.nameLbl.TabIndex = 0;
-            this.nameLbl.Text = "Name";
+            nameLbl.AutoSize = true;
+            nameLbl.Location = new Point(77, 40);
+            nameLbl.Name = "nameLbl";
+            nameLbl.Size = new Size(49, 20);
+            nameLbl.TabIndex = 0;
+            nameLbl.Text = "Name";
             // 
             // nameTxtBox
             // 
-            this.nameTxtBox.Location = new System.Drawing.Point(144, 37);
-            this.nameTxtBox.Name = "nameTxtBox";
-            this.nameTxtBox.Size = new System.Drawing.Size(100, 26);
-            this.nameTxtBox.TabIndex = 1;
+            nameTxtBox.Location = new Point(128, 37);
+            nameTxtBox.Name = "nameTxtBox";
+            nameTxtBox.Size = new Size(89, 27);
+            nameTxtBox.TabIndex = 1;
             // 
             // name2Lbl
             // 
-            this.name2Lbl.AutoSize = true;
-            this.name2Lbl.Location = new System.Drawing.Point(30, 96);
-            this.name2Lbl.Name = "name2Lbl";
-            this.name2Lbl.Size = new System.Drawing.Size(108, 20);
-            this.name2Lbl.TabIndex = 2;
-            this.name2Lbl.Text = "Second name";
+            name2Lbl.AutoSize = true;
+            name2Lbl.Location = new Point(27, 96);
+            name2Lbl.Name = "name2Lbl";
+            name2Lbl.Size = new Size(99, 20);
+            name2Lbl.TabIndex = 2;
+            name2Lbl.Text = "Second name";
             // 
             // name3Lbl
             // 
-            this.name3Lbl.AutoSize = true;
-            this.name3Lbl.Location = new System.Drawing.Point(40, 146);
-            this.name3Lbl.Name = "name3Lbl";
-            this.name3Lbl.Size = new System.Drawing.Size(98, 20);
-            this.name3Lbl.TabIndex = 3;
-            this.name3Lbl.Text = "Family name";
+            name3Lbl.AutoSize = true;
+            name3Lbl.Location = new Point(36, 146);
+            name3Lbl.Name = "name3Lbl";
+            name3Lbl.Size = new Size(92, 20);
+            name3Lbl.TabIndex = 3;
+            name3Lbl.Text = "Family name";
             // 
             // ageLbl
             // 
-            this.ageLbl.AutoSize = true;
-            this.ageLbl.Location = new System.Drawing.Point(290, 40);
-            this.ageLbl.Name = "ageLbl";
-            this.ageLbl.Size = new System.Drawing.Size(97, 20);
-            this.ageLbl.TabIndex = 4;
-            this.ageLbl.Text = "Date of birth";
+            ageLbl.AutoSize = true;
+            ageLbl.Location = new Point(258, 40);
+            ageLbl.Name = "ageLbl";
+            ageLbl.Size = new Size(94, 20);
+            ageLbl.TabIndex = 4;
+            ageLbl.Text = "Date of birth";
             // 
             // positionLbl
             // 
-            this.positionLbl.AutoSize = true;
-            this.positionLbl.Location = new System.Drawing.Point(322, 93);
-            this.positionLbl.Name = "positionLbl";
-            this.positionLbl.Size = new System.Drawing.Size(65, 20);
-            this.positionLbl.TabIndex = 5;
-            this.positionLbl.Text = "Position";
+            positionLbl.AutoSize = true;
+            positionLbl.Location = new Point(286, 93);
+            positionLbl.Name = "positionLbl";
+            positionLbl.Size = new Size(61, 20);
+            positionLbl.TabIndex = 5;
+            positionLbl.Text = "Position";
             // 
             // salaryLbl
             // 
-            this.salaryLbl.AutoSize = true;
-            this.salaryLbl.Location = new System.Drawing.Point(334, 146);
-            this.salaryLbl.Name = "salaryLbl";
-            this.salaryLbl.Size = new System.Drawing.Size(53, 20);
-            this.salaryLbl.TabIndex = 6;
-            this.salaryLbl.Text = "Salary";
+            salaryLbl.AutoSize = true;
+            salaryLbl.Location = new Point(297, 146);
+            salaryLbl.Name = "salaryLbl";
+            salaryLbl.Size = new Size(49, 20);
+            salaryLbl.TabIndex = 6;
+            salaryLbl.Text = "Salary";
             // 
             // name2TxtBox
             // 
-            this.name2TxtBox.Location = new System.Drawing.Point(144, 90);
-            this.name2TxtBox.Name = "name2TxtBox";
-            this.name2TxtBox.Size = new System.Drawing.Size(100, 26);
-            this.name2TxtBox.TabIndex = 7;
+            name2TxtBox.Location = new Point(128, 90);
+            name2TxtBox.Name = "name2TxtBox";
+            name2TxtBox.Size = new Size(89, 27);
+            name2TxtBox.TabIndex = 7;
             // 
             // name3TxtBox
             // 
-            this.name3TxtBox.Location = new System.Drawing.Point(144, 143);
-            this.name3TxtBox.Name = "name3TxtBox";
-            this.name3TxtBox.Size = new System.Drawing.Size(100, 26);
-            this.name3TxtBox.TabIndex = 8;
+            name3TxtBox.Location = new Point(128, 143);
+            name3TxtBox.Name = "name3TxtBox";
+            name3TxtBox.Size = new Size(89, 27);
+            name3TxtBox.TabIndex = 8;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(393, 37);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2007, 12, 31, 0, 0, 0, 0);
-            this.dateTimePicker1.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker1.TabIndex = 12;
-            this.dateTimePicker1.Value = new System.DateTime(2007, 12, 31, 0, 0, 0, 0);
+            dateTimePicker1.Location = new Point(349, 37);
+            dateTimePicker1.MaxDate = new DateTime(2007, 12, 31, 0, 0, 0, 0);
+            dateTimePicker1.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(178, 27);
+            dateTimePicker1.TabIndex = 12;
+            dateTimePicker1.Value = new DateTime(2007, 12, 31, 0, 0, 0, 0);
             // 
             // positionTxtBox
             // 
-            this.positionTxtBox.Location = new System.Drawing.Point(393, 90);
-            this.positionTxtBox.Name = "positionTxtBox";
-            this.positionTxtBox.Size = new System.Drawing.Size(100, 26);
-            this.positionTxtBox.TabIndex = 13;
+            positionTxtBox.Location = new Point(349, 90);
+            positionTxtBox.Name = "positionTxtBox";
+            positionTxtBox.Size = new Size(89, 27);
+            positionTxtBox.TabIndex = 13;
             // 
             // salaryTxtBox
             // 
-            this.salaryTxtBox.Location = new System.Drawing.Point(393, 143);
-            this.salaryTxtBox.Name = "salaryTxtBox";
-            this.salaryTxtBox.Size = new System.Drawing.Size(100, 26);
-            this.salaryTxtBox.TabIndex = 14;
+            salaryTxtBox.Location = new Point(349, 143);
+            salaryTxtBox.Name = "salaryTxtBox";
+            salaryTxtBox.Size = new Size(89, 27);
+            salaryTxtBox.TabIndex = 14;
             // 
             // createBtn
             // 
-            this.createBtn.Location = new System.Drawing.Point(178, 275);
-            this.createBtn.Name = "createBtn";
-            this.createBtn.Size = new System.Drawing.Size(90, 46);
-            this.createBtn.TabIndex = 15;
-            this.createBtn.Text = "Create";
-            this.createBtn.UseVisualStyleBackColor = true;
+            createBtn.Location = new Point(158, 275);
+            createBtn.Name = "createBtn";
+            createBtn.Size = new Size(80, 46);
+            createBtn.TabIndex = 15;
+            createBtn.Text = "Create";
+            createBtn.UseVisualStyleBackColor = true;
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(338, 275);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(90, 46);
-            this.deleteBtn.TabIndex = 16;
-            this.deleteBtn.Text = "Delete";
-            this.deleteBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Location = new Point(300, 275);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(80, 46);
+            deleteBtn.TabIndex = 16;
+            deleteBtn.Text = "Delete";
+            deleteBtn.UseVisualStyleBackColor = true;
             // 
             // EmployeeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.deleteBtn);
-            this.Controls.Add(this.createBtn);
-            this.Controls.Add(this.salaryTxtBox);
-            this.Controls.Add(this.positionTxtBox);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.name3TxtBox);
-            this.Controls.Add(this.name2TxtBox);
-            this.Controls.Add(this.salaryLbl);
-            this.Controls.Add(this.positionLbl);
-            this.Controls.Add(this.ageLbl);
-            this.Controls.Add(this.name3Lbl);
-            this.Controls.Add(this.name2Lbl);
-            this.Controls.Add(this.nameTxtBox);
-            this.Controls.Add(this.nameLbl);
-            this.Name = "EmployeeForm";
-            this.Text = "EmployeeForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(711, 450);
+            Controls.Add(deleteBtn);
+            Controls.Add(createBtn);
+            Controls.Add(salaryTxtBox);
+            Controls.Add(positionTxtBox);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(name3TxtBox);
+            Controls.Add(name2TxtBox);
+            Controls.Add(salaryLbl);
+            Controls.Add(positionLbl);
+            Controls.Add(ageLbl);
+            Controls.Add(name3Lbl);
+            Controls.Add(name2Lbl);
+            Controls.Add(nameTxtBox);
+            Controls.Add(nameLbl);
+            Name = "EmployeeForm";
+            Text = "EmployeeForm";
+            Load += EmployeeForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

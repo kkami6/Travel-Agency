@@ -10,6 +10,11 @@ namespace ServiceLayer
     {
         private IDb<T, int> context;
 
+        public Manager(IDb<T, int> context)
+        {
+            this.context = context;
+        }
+
         public void Create(T item)
         {
             try
