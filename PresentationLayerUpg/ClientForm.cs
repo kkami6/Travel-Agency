@@ -18,19 +18,20 @@ namespace WindowsFormsApp1
 {
     public partial class ClientForm : Form
     {
-        TravelAgencyDbContext dbContext;
         Client selectedClient;
         bool updatedClient = false;
         bool deleteClient = false;
         int currentRowIndex = -1;
-        public IDb<Client, int> ClientContext;
-        Manager<Client, int> ClientManager;
+        private Manager<Client, int> clientManager;
+        private ClientsContext clientContext;
+        private TravelAgencyDbContext context;
 
         public ClientForm()
         {
-            ClientContext = new ClientsContext(dbContext); // Assuming ClientDb implements IDb<Client, int>
-            ClientManager = new Manager<Client, int>(ClientContext);
             InitializeComponent();
+            context = new TravelAgencyDbContext();
+            clientContext = new ClientsContext(context);
+            clientManager = new Manager<Client, int>(clientContext);
         }
 
 
@@ -65,7 +66,7 @@ namespace WindowsFormsApp1
                 Client client = new Client(name, secondName, familyName, age, status);
 
                 //serv layer
-                ClientManager.Create(client);
+                clientContext.Create(client);
                 MessageBox.Show("Client added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 currentRowIndex = -1;
@@ -91,84 +92,92 @@ namespace WindowsFormsApp1
         private void LoadClients()
         {
             // Load clients logic
-            //clientDataGridView.DataSource = ClientManager.GetAllClients();
-            //this.clientTableAdapter.Fill(this.)
-        }
-
-        private void clientDataGridView_RowEnter(object sender, DataGridViewRowEventArgs e)
-        {
-            //MessageBox.Show("Text to show", "Caption", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (currentRowIndex == -1 || deleteClient)
+            try
             {
-                currentRowIndex = 0;
-                return;
+                List<Client> clients = clientManager.ReadAll(true, false);
+                clientDataGridView.DataSource = clients;
+                clientDataGridView.AutoResizeColumns();
             }
-
-            if (updatedClient)
+            catch (Exception ex)
             {
-                ClientManager.Update(selectedClient);
-            }
-
-            //currentRowIndex = e.RowIndex;
-
-            //selectedClient = new Client();
-
-            //selectedClient.ClientId = ....Client[currentRowIndex].ClientId;
-            //selectedClient.Name = .Client[currentRowIndex].Name;
-            //selectedClient.SecondName = .Client[currentRowIndex].SecondName;
-            //selectedClient.FamilyName = .Client[currentRowIndex].FamilyName;
-            //selectedClient.Age = .Client[currentRowIndex].Age;
-            //selectedClient.Status = .Client[currentRowIndex].Status;
-            ////selectedClient.Excursions = .Client[currentRowIndex].Excursions;
-
-            ////Update graphical components
-            //nameTxtBox.Text = selectedClient.Name;
-            //name2TxtBox.Text = selectedClient.SecondName;
-            //name3TxtBox.Text = selectedClient.FamilyName;
-            //statusCheck.Checked = selectedClient.Status;
-            //agePicker.Value = selectedClient.Age;
-
-            //updatedClient = false;
-            //deleteBtn.Enabled = true;
-        }
-
-        private void clientDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1 && e.ColumnIndex != -1)
-            {
-                clientDataGridView.UpdateCellValue(e.ColumnIndex, e.RowIndex);
-
-                //switch (e.ColumnIndex)
-                //{
-                //    case 0:
-                //        selectedClient.Name = .Client[e.RowIndex].Name;
-                //        nameTxtBox.Text = selectedClient.Name;
-                //        break;
-                //    case 1:
-                //        selectedClient.SecondName = .Client[e.RowIndex].SecondName;
-                //        name2TxtBox.Text = selectedClient.SecondName;
-                //        break;
-                //    case 2:
-                //        selectedClient.FamilyName = .Client[e.RowIndex].FamilyName;
-                //        name3TxtBox.Text = selectedClient.FamilyName;
-                //        break;
-                //    case 3:
-                //        selectedClient.Age = .Client[e.RowIndex].Age;
-                //        agePicker.Value = selectedClient.Age;
-                //        break;
-                //    case 4:
-                //        selectedClient.Status = .Client[e.RowIndex].Status;
-                //        statusCheck.Checked = selectedClient.Status;
-                //        break;
-
-                //    default:
-                //        break;
-                //}
-
-                //updatedClient = true;
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        //private void clientDataGridView_RowEnter(object sender, DataGridViewRowEventArgs e)
+        //{
+        //    //MessageBox.Show("Text to show", "Caption", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        //    if (currentRowIndex == -1 || deleteClient)
+        //    {
+        //        currentRowIndex = 0;
+        //        return;
+        //    }
+
+        //    if (updatedClient)
+        //    {
+        //        clientManager.Update(selectedClient);
+        //    }
+
+        //    //currentRowIndex = e.RowIndex;
+
+        //    //selectedClient = new Client();
+
+        //    //selectedClient.ClientId = ....Client[currentRowIndex].ClientId;
+        //    //selectedClient.Name = .Client[currentRowIndex].Name;
+        //    //selectedClient.SecondName = .Client[currentRowIndex].SecondName;
+        //    //selectedClient.FamilyName = .Client[currentRowIndex].FamilyName;
+        //    //selectedClient.Age = .Client[currentRowIndex].Age;
+        //    //selectedClient.Status = .Client[currentRowIndex].Status;
+        //    ////selectedClient.Excursions = .Client[currentRowIndex].Excursions;
+
+        //    ////Update graphical components
+        //    //nameTxtBox.Text = selectedClient.Name;
+        //    //name2TxtBox.Text = selectedClient.SecondName;
+        //    //name3TxtBox.Text = selectedClient.FamilyName;
+        //    //statusCheck.Checked = selectedClient.Status;
+        //    //agePicker.Value = selectedClient.Age;
+
+        //    //updatedClient = false;
+        //    //deleteBtn.Enabled = true;
+        //}
+
+        //private void clientDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex != -1 && e.ColumnIndex != -1)
+        //    {
+        //        clientDataGridView.UpdateCellValue(e.ColumnIndex, e.RowIndex);
+
+        //        //switch (e.ColumnIndex)
+        //        //{
+        //        //    case 0:
+        //        //        selectedClient.Name = .Client[e.RowIndex].Name;
+        //        //        nameTxtBox.Text = selectedClient.Name;
+        //        //        break;
+        //        //    case 1:
+        //        //        selectedClient.SecondName = .Client[e.RowIndex].SecondName;
+        //        //        name2TxtBox.Text = selectedClient.SecondName;
+        //        //        break;
+        //        //    case 2:
+        //        //        selectedClient.FamilyName = .Client[e.RowIndex].FamilyName;
+        //        //        name3TxtBox.Text = selectedClient.FamilyName;
+        //        //        break;
+        //        //    case 3:
+        //        //        selectedClient.Age = .Client[e.RowIndex].Age;
+        //        //        agePicker.Value = selectedClient.Age;
+        //        //        break;
+        //        //    case 4:
+        //        //        selectedClient.Status = .Client[e.RowIndex].Status;
+        //        //        statusCheck.Checked = selectedClient.Status;
+        //        //        break;
+
+        //        //    default:
+        //        //        break;
+        //        //}
+
+        //        //updatedClient = true;
+        //    }
+        //}
 
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -180,7 +189,7 @@ namespace WindowsFormsApp1
             if (statusCheck.Checked) selectedClient.Status = "loyal";
             else selectedClient.Status = "normal";
 
-            ClientManager.Update(selectedClient);
+            clientManager.Update(selectedClient);
 
             //Update
             clientDataGridView[0, currentRowIndex].Value = selectedClient.Name;
@@ -197,7 +206,7 @@ namespace WindowsFormsApp1
 
             clientDataGridView.Rows.RemoveAt(clientDataGridView.CurrentRow.Index);
 
-            ClientManager.Delete(selectedClient.ClientId);
+            clientManager.Delete(selectedClient.ClientId);
 
             deleteBtn.Enabled = false;
             deleteClient = false;
@@ -215,7 +224,7 @@ namespace WindowsFormsApp1
         private void ClearUserInterface()
         {
             nameTxtBox.Text = string.Empty;
-            name2TxtBox.Text =string.Empty;
+            name2TxtBox.Text = string.Empty;
             name3TxtBox.Text = string.Empty;
             agePicker.Value = DateTime.Now;
             statusCheck.Checked = false;
@@ -230,6 +239,9 @@ namespace WindowsFormsApp1
 
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -42,16 +42,17 @@
             agePicker = new DateTimePicker();
             statusCheck = new CheckBox();
             clientDataGridView = new DataGridView();
-            clientBindingSource = new BindingSource(components);
-            clientsContextTestsBindingSource = new BindingSource(components);
-            updateBtn = new Button();
-            excursionsBindingSource = new BindingSource(components);
             clientIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             secondNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             familyNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            clientBindingSource = new BindingSource(components);
+            clientsContextTestsBindingSource = new BindingSource(components);
+            updateBtn = new Button();
+            excursionsBindingSource = new BindingSource(components);
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)clientDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsContextTestsBindingSource).BeginInit();
@@ -190,31 +191,6 @@
             clientDataGridView.TabIndex = 14;
             clientDataGridView.CellContentClick += clientDataGridView_CellContentClick;
             // 
-            // clientBindingSource
-            // 
-            clientBindingSource.AllowNew = true;
-            clientBindingSource.DataSource = typeof(BusinessLayer.Client);
-            // 
-            // clientsContextTestsBindingSource
-            // 
-            clientsContextTestsBindingSource.DataSource = typeof(TestingLayer.ClientsContextTests);
-            // 
-            // updateBtn
-            // 
-            updateBtn.Location = new Point(246, 217);
-            updateBtn.Margin = new Padding(2, 3, 2, 3);
-            updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(72, 32);
-            updateBtn.TabIndex = 15;
-            updateBtn.Text = "Update";
-            updateBtn.UseVisualStyleBackColor = true;
-            updateBtn.Click += updateBtn_Click;
-            // 
-            // excursionsBindingSource
-            // 
-            excursionsBindingSource.DataMember = "Excursions";
-            excursionsBindingSource.DataSource = clientBindingSource;
-            // 
             // clientIdDataGridViewTextBoxColumn
             // 
             clientIdDataGridViewTextBoxColumn.DataPropertyName = "ClientId";
@@ -263,11 +239,45 @@
             statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             statusDataGridViewTextBoxColumn.Width = 125;
             // 
+            // clientBindingSource
+            // 
+            clientBindingSource.AllowNew = true;
+            clientBindingSource.DataSource = typeof(BusinessLayer.Client);
+            // 
+            // clientsContextTestsBindingSource
+            // 
+            clientsContextTestsBindingSource.DataSource = typeof(TestingLayer.ClientsContextTests);
+            // 
+            // updateBtn
+            // 
+            updateBtn.Location = new Point(246, 217);
+            updateBtn.Margin = new Padding(2, 3, 2, 3);
+            updateBtn.Name = "updateBtn";
+            updateBtn.Size = new Size(72, 32);
+            updateBtn.TabIndex = 15;
+            updateBtn.Text = "Update";
+            updateBtn.UseVisualStyleBackColor = true;
+            updateBtn.Click += updateBtn_Click;
+            // 
+            // excursionsBindingSource
+            // 
+            excursionsBindingSource.DataMember = "Excursions";
+            excursionsBindingSource.DataSource = clientBindingSource;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(583, 140);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.TabIndex = 16;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            // 
             // ClientForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(740, 477);
+            Controls.Add(dateTimePicker1);
             Controls.Add(updateBtn);
             Controls.Add(clientDataGridView);
             Controls.Add(statusCheck);
@@ -319,5 +329,6 @@
         private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private BindingSource excursionsBindingSource;
+        private DateTimePicker dateTimePicker1;
     }
 }

@@ -40,11 +40,11 @@ namespace ServiceLayer
             }
         }
 
-        public void ReadAll()
+        public List<T> ReadAll(bool useNavigationalProperties = false, bool isReadOnly = false)
         {
             try
             {
-                context.ReadAll();
+                return context.ReadAll();
             }
             catch(Exception ex)
             {
