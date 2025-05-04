@@ -37,140 +37,169 @@
             salaryLbl = new Label();
             name2TxtBox = new TextBox();
             name3TxtBox = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
+            agePicker = new DateTimePicker();
             positionTxtBox = new TextBox();
             salaryTxtBox = new TextBox();
             createBtn = new Button();
             deleteBtn = new Button();
+            updateBtn = new Button();
             SuspendLayout();
             // 
             // nameLbl
             // 
             nameLbl.AutoSize = true;
-            nameLbl.Location = new Point(77, 40);
+            nameLbl.Location = new Point(96, 50);
+            nameLbl.Margin = new Padding(4, 0, 4, 0);
             nameLbl.Name = "nameLbl";
-            nameLbl.Size = new Size(49, 20);
+            nameLbl.Size = new Size(59, 25);
             nameLbl.TabIndex = 0;
             nameLbl.Text = "Name";
             // 
             // nameTxtBox
             // 
-            nameTxtBox.Location = new Point(128, 37);
+            nameTxtBox.Location = new Point(160, 46);
+            nameTxtBox.Margin = new Padding(4);
             nameTxtBox.Name = "nameTxtBox";
-            nameTxtBox.Size = new Size(89, 27);
+            nameTxtBox.Size = new Size(110, 31);
             nameTxtBox.TabIndex = 1;
             // 
             // name2Lbl
             // 
             name2Lbl.AutoSize = true;
-            name2Lbl.Location = new Point(27, 96);
+            name2Lbl.Location = new Point(34, 120);
+            name2Lbl.Margin = new Padding(4, 0, 4, 0);
             name2Lbl.Name = "name2Lbl";
-            name2Lbl.Size = new Size(99, 20);
+            name2Lbl.Size = new Size(120, 25);
             name2Lbl.TabIndex = 2;
             name2Lbl.Text = "Second name";
             // 
             // name3Lbl
             // 
             name3Lbl.AutoSize = true;
-            name3Lbl.Location = new Point(36, 146);
+            name3Lbl.Location = new Point(45, 182);
+            name3Lbl.Margin = new Padding(4, 0, 4, 0);
             name3Lbl.Name = "name3Lbl";
-            name3Lbl.Size = new Size(92, 20);
+            name3Lbl.Size = new Size(111, 25);
             name3Lbl.TabIndex = 3;
             name3Lbl.Text = "Family name";
             // 
             // ageLbl
             // 
             ageLbl.AutoSize = true;
-            ageLbl.Location = new Point(258, 40);
+            ageLbl.Location = new Point(322, 50);
+            ageLbl.Margin = new Padding(4, 0, 4, 0);
             ageLbl.Name = "ageLbl";
-            ageLbl.Size = new Size(94, 20);
+            ageLbl.Size = new Size(113, 25);
             ageLbl.TabIndex = 4;
             ageLbl.Text = "Date of birth";
             // 
             // positionLbl
             // 
             positionLbl.AutoSize = true;
-            positionLbl.Location = new Point(286, 93);
+            positionLbl.Location = new Point(358, 116);
+            positionLbl.Margin = new Padding(4, 0, 4, 0);
             positionLbl.Name = "positionLbl";
-            positionLbl.Size = new Size(61, 20);
+            positionLbl.Size = new Size(75, 25);
             positionLbl.TabIndex = 5;
             positionLbl.Text = "Position";
             // 
             // salaryLbl
             // 
             salaryLbl.AutoSize = true;
-            salaryLbl.Location = new Point(297, 146);
+            salaryLbl.Location = new Point(371, 182);
+            salaryLbl.Margin = new Padding(4, 0, 4, 0);
             salaryLbl.Name = "salaryLbl";
-            salaryLbl.Size = new Size(49, 20);
+            salaryLbl.Size = new Size(59, 25);
             salaryLbl.TabIndex = 6;
             salaryLbl.Text = "Salary";
             // 
             // name2TxtBox
             // 
-            name2TxtBox.Location = new Point(128, 90);
+            name2TxtBox.Location = new Point(160, 112);
+            name2TxtBox.Margin = new Padding(4);
             name2TxtBox.Name = "name2TxtBox";
-            name2TxtBox.Size = new Size(89, 27);
+            name2TxtBox.Size = new Size(110, 31);
             name2TxtBox.TabIndex = 7;
             // 
             // name3TxtBox
             // 
-            name3TxtBox.Location = new Point(128, 143);
+            name3TxtBox.Location = new Point(160, 179);
+            name3TxtBox.Margin = new Padding(4);
             name3TxtBox.Name = "name3TxtBox";
-            name3TxtBox.Size = new Size(89, 27);
+            name3TxtBox.Size = new Size(110, 31);
             name3TxtBox.TabIndex = 8;
             // 
-            // dateTimePicker1
+            // agePicker
             // 
-            dateTimePicker1.Location = new Point(349, 37);
-            dateTimePicker1.MaxDate = new DateTime(2007, 12, 31, 0, 0, 0, 0);
-            dateTimePicker1.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(178, 27);
-            dateTimePicker1.TabIndex = 12;
-            dateTimePicker1.Value = new DateTime(2007, 12, 31, 0, 0, 0, 0);
+            agePicker.Location = new Point(436, 46);
+            agePicker.Margin = new Padding(4);
+            agePicker.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
+            agePicker.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
+            agePicker.Name = "agePicker";
+            agePicker.Size = new Size(222, 31);
+            agePicker.TabIndex = 12;
+            agePicker.Value = new DateTime(2025, 5, 4, 0, 0, 0, 0);
             // 
             // positionTxtBox
             // 
-            positionTxtBox.Location = new Point(349, 90);
+            positionTxtBox.Location = new Point(436, 112);
+            positionTxtBox.Margin = new Padding(4);
             positionTxtBox.Name = "positionTxtBox";
-            positionTxtBox.Size = new Size(89, 27);
+            positionTxtBox.Size = new Size(110, 31);
             positionTxtBox.TabIndex = 13;
             // 
             // salaryTxtBox
             // 
-            salaryTxtBox.Location = new Point(349, 143);
+            salaryTxtBox.Location = new Point(436, 179);
+            salaryTxtBox.Margin = new Padding(4);
             salaryTxtBox.Name = "salaryTxtBox";
-            salaryTxtBox.Size = new Size(89, 27);
+            salaryTxtBox.Size = new Size(110, 31);
             salaryTxtBox.TabIndex = 14;
             // 
             // createBtn
             // 
-            createBtn.Location = new Point(158, 275);
+            createBtn.Location = new Point(187, 344);
+            createBtn.Margin = new Padding(4);
             createBtn.Name = "createBtn";
-            createBtn.Size = new Size(80, 46);
+            createBtn.Size = new Size(100, 58);
             createBtn.TabIndex = 15;
             createBtn.Text = "Create";
             createBtn.UseVisualStyleBackColor = true;
+            createBtn.Click += createBtn_Click;
             // 
             // deleteBtn
             // 
-            deleteBtn.Location = new Point(300, 275);
+            deleteBtn.Location = new Point(535, 344);
+            deleteBtn.Margin = new Padding(4);
             deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(80, 46);
+            deleteBtn.Size = new Size(100, 58);
             deleteBtn.TabIndex = 16;
             deleteBtn.Text = "Delete";
             deleteBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Click += deleteBtn_Click;
+            // 
+            // updateBtn
+            // 
+            updateBtn.Location = new Point(358, 344);
+            updateBtn.Margin = new Padding(4);
+            updateBtn.Name = "updateBtn";
+            updateBtn.Size = new Size(100, 58);
+            updateBtn.TabIndex = 17;
+            updateBtn.Text = "Upate";
+            updateBtn.UseVisualStyleBackColor = true;
+            updateBtn.Click += updateBtn_Click;
             // 
             // EmployeeForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(711, 450);
+            ClientSize = new Size(889, 562);
+            Controls.Add(updateBtn);
             Controls.Add(deleteBtn);
             Controls.Add(createBtn);
             Controls.Add(salaryTxtBox);
             Controls.Add(positionTxtBox);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(agePicker);
             Controls.Add(name3TxtBox);
             Controls.Add(name2TxtBox);
             Controls.Add(salaryLbl);
@@ -180,6 +209,7 @@
             Controls.Add(name2Lbl);
             Controls.Add(nameTxtBox);
             Controls.Add(nameLbl);
+            Margin = new Padding(4);
             Name = "EmployeeForm";
             Text = "EmployeeForm";
             Load += EmployeeForm_Load;
@@ -198,10 +228,11 @@
         private System.Windows.Forms.Label salaryLbl;
         private System.Windows.Forms.TextBox name2TxtBox;
         private System.Windows.Forms.TextBox name3TxtBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker agePicker;
         private System.Windows.Forms.TextBox positionTxtBox;
         private System.Windows.Forms.TextBox salaryTxtBox;
         private System.Windows.Forms.Button createBtn;
         private System.Windows.Forms.Button deleteBtn;
+        private Button updateBtn;
     }
 }
