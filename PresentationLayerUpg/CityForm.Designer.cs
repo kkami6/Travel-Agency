@@ -36,14 +36,14 @@
             createBtn = new Button();
             updateBtn = new Button();
             deleteBtn = new Button();
-            dataGridView1 = new DataGridView();
-            testManagerBindingSource = new BindingSource(components);
-            cityBindingSource = new BindingSource(components);
+            cityDataGridView = new DataGridView();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             countryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)testManagerBindingSource).BeginInit();
+            cityBindingSource = new BindingSource(components);
+            testManagerBindingSource = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)cityDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cityBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)testManagerBindingSource).BeginInit();
             SuspendLayout();
             // 
             // nameLabel
@@ -82,52 +82,48 @@
             // 
             // createBtn
             // 
-            createBtn.Location = new Point(137, 259);
+            createBtn.Location = new Point(152, 242);
             createBtn.Name = "createBtn";
             createBtn.Size = new Size(120, 54);
             createBtn.TabIndex = 4;
             createBtn.Text = "Create";
             createBtn.UseVisualStyleBackColor = true;
+            createBtn.Click += createBtn_Click;
             // 
             // updateBtn
             // 
-            updateBtn.Location = new Point(312, 259);
+            updateBtn.Enabled = false;
+            updateBtn.Location = new Point(322, 242);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(120, 54);
             updateBtn.TabIndex = 5;
             updateBtn.Text = "Update";
             updateBtn.UseVisualStyleBackColor = true;
+            updateBtn.Click += updateBtn_Click;
             // 
             // deleteBtn
             // 
-            deleteBtn.Location = new Point(481, 259);
+            deleteBtn.Enabled = false;
+            deleteBtn.Location = new Point(494, 242);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(120, 54);
             deleteBtn.TabIndex = 6;
             deleteBtn.Text = "Delete";
             deleteBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Click += deleteBtn_Click;
             // 
-            // dataGridView1
+            // cityDataGridView
             // 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, countryDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = cityBindingSource;
-            dataGridView1.Location = new Point(98, 329);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(364, 206);
-            dataGridView1.TabIndex = 7;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // testManagerBindingSource
-            // 
-            testManagerBindingSource.DataSource = typeof(TestingLayer.TestManager);
-            // 
-            // cityBindingSource
-            // 
-            cityBindingSource.AllowNew = true;
-            cityBindingSource.DataSource = typeof(BusinessLayer.City);
+            cityDataGridView.AutoGenerateColumns = false;
+            cityDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            cityDataGridView.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, countryDataGridViewTextBoxColumn });
+            cityDataGridView.DataSource = cityBindingSource;
+            cityDataGridView.Location = new Point(98, 329);
+            cityDataGridView.Name = "cityDataGridView";
+            cityDataGridView.RowHeadersWidth = 62;
+            cityDataGridView.Size = new Size(366, 206);
+            cityDataGridView.TabIndex = 7;
+            cityDataGridView.CellContentClick += dataGridView1_CellContentClick;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -145,12 +141,21 @@
             countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
             countryDataGridViewTextBoxColumn.Width = 150;
             // 
+            // cityBindingSource
+            // 
+            cityBindingSource.AllowNew = true;
+            cityBindingSource.DataSource = typeof(BusinessLayer.City);
+            // 
+            // testManagerBindingSource
+            // 
+            testManagerBindingSource.DataSource = typeof(TestingLayer.TestManager);
+            // 
             // CityForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(889, 562);
-            Controls.Add(dataGridView1);
+            Controls.Add(cityDataGridView);
             Controls.Add(deleteBtn);
             Controls.Add(updateBtn);
             Controls.Add(createBtn);
@@ -162,9 +167,9 @@
             Name = "CityForm";
             Text = "City";
             Load += CityForm_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)testManagerBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cityDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)cityBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)testManagerBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -179,7 +184,7 @@
         private Button createBtn;
         private Button updateBtn;
         private Button deleteBtn;
-        private DataGridView dataGridView1;
+        private DataGridView cityDataGridView;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
         private BindingSource cityBindingSource;
