@@ -53,22 +53,17 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Please fill in all fields!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-                if (departureDateTimePicker.MinDate != DateTime.Today)
+                if (departureDate > returnDate)
                 {
-                    MessageBox.Show("You must enter a valid date!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("The return date must be after the departure date!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
-                if (returnDateTimePicker.Value.Date.Year == DateTime.Now.Year)
-                {
-                    MessageBox.Show("You must enter a valid return date!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
                 Excursion excursion = new Excursion(city.CityId, hotel.HotelId, price, departureDate, returnDate)
                 {
                     Price = price,
-                    HotelId = int.Parse(hotelTxtBox.Text),
-                    CityId = int.Parse(cityTxtBox.Text),
+                    HotelId = hotel.HotelId,
+                    CityId = city.CityId,
                     ReturnDate = returnDate,
                     DepartureDate = departureDateTimePicker.Value.Date
                 };

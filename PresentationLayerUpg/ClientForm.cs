@@ -96,7 +96,8 @@ namespace WindowsFormsApp1
             {
                 List<Client> clients = clientManager.ReadAll(true, false);
                 clientDataGridView.DataSource = clients;
-                clientDataGridView.AutoResizeColumns();
+                //clientDataGridView.AutoResizeColumns();
+                clientDataGridView.Refresh();
             }
             catch (Exception ex)
             {
@@ -182,9 +183,9 @@ namespace WindowsFormsApp1
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            selectedClient.Name = nameTxtBox.Text;
-            selectedClient.SecondName = name2TxtBox.Text;
-            selectedClient.FamilyName = name3TxtBox.Text;
+            nameTxtBox.Text = clientDataGridView.SelectedRows[0].Cells[1].ToString();
+            name2TxtBox.Text = clientDataGridView.SelectedRows[0].Cells[2].ToString();
+            name3TxtBox.Text= clientDataGridView.SelectedRows[0].Cells[3].ToString();
             selectedClient.Age = DateTime.Now.Year - agePicker.Value.Year;
             if (statusCheck.Checked) selectedClient.Status = "loyal";
             else selectedClient.Status = "normal";
@@ -240,6 +241,11 @@ namespace WindowsFormsApp1
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }
