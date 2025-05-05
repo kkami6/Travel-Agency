@@ -118,10 +118,10 @@
             cityDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             cityDataGridView.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, countryDataGridViewTextBoxColumn });
             cityDataGridView.DataSource = cityBindingSource;
-            cityDataGridView.Location = new Point(98, 329);
+            cityDataGridView.Location = new Point(152, 332);
             cityDataGridView.Name = "cityDataGridView";
             cityDataGridView.RowHeadersWidth = 62;
-            cityDataGridView.Size = new Size(366, 206);
+            cityDataGridView.Size = new Size(568, 206);
             cityDataGridView.TabIndex = 7;
             cityDataGridView.CellContentClick += dataGridView1_CellContentClick;
             // 
