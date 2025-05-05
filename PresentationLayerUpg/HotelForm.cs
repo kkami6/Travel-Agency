@@ -47,9 +47,9 @@ namespace WindowsFormsApp1
                 string address = addressTxtBox.Text;
                 int rating = Convert.ToInt32(ratingUpDown.Value);
                 bool spa, parking;
-                if (SPA.CheckOnClick == true) { spa = true; }
+                if (SPA.Checked == true) { spa = true; }
                 else spa = false;
-                if (Parking.CheckOnClick == true) { parking = true; }
+                if (Parking.Checked == true) { parking = true; }
                 else parking = false;
                 if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(city.Name) || string.IsNullOrWhiteSpace(address) || string.IsNullOrWhiteSpace(rating.ToString()))
                 {
