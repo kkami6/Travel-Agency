@@ -183,43 +183,65 @@ namespace WindowsFormsApp1
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            nameTxtBox.Text = clientDataGridView.SelectedRows[0].Cells[1].ToString();
-            name2TxtBox.Text = clientDataGridView.SelectedRows[0].Cells[2].ToString();
-            name3TxtBox.Text= clientDataGridView.SelectedRows[0].Cells[3].ToString();
-            selectedClient.Age = DateTime.Now.Year - agePicker.Value.Year;
-            if (statusCheck.Checked) selectedClient.Status = "loyal";
-            else selectedClient.Status = "normal";
+            try
+            {
+                clientManager.Update(selectedClient);
+                MessageBox.Show("Client updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            clientManager.Update(selectedClient);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //nameTxtBox.Text = clientDataGridView.SelectedRows[0].Cells[1].ToString();
+            //name2TxtBox.Text = clientDataGridView.SelectedRows[0].Cells[2].ToString();
+            //name3TxtBox.Text = clientDataGridView.SelectedRows[0].Cells[3].ToString();
+            //selectedClient.Age = DateTime.Now.Year - agePicker.Value.Year;
+            //if (statusCheck.Checked) selectedClient.Status = "loyal";
+            //else selectedClient.Status = "normal";
 
-            //Update
-            clientDataGridView[0, currentRowIndex].Value = selectedClient.Name;
-            clientDataGridView[1, currentRowIndex].Value = selectedClient.SecondName;
-            clientDataGridView[2, currentRowIndex].Value = selectedClient.FamilyName;
-            clientDataGridView[3, currentRowIndex].Value = selectedClient.Age;
-            clientDataGridView[4, currentRowIndex].Value = selectedClient.Status;
+            //clientManager.Update(selectedClient);
 
-            MessageBox.Show("Client updated successfuly!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ////Update
+            //clientDataGridView[0, currentRowIndex].Value = selectedClient.Name;
+            //clientDataGridView[1, currentRowIndex].Value = selectedClient.SecondName;
+            //clientDataGridView[2, currentRowIndex].Value = selectedClient.FamilyName;
+            //clientDataGridView[3, currentRowIndex].Value = selectedClient.Age;
+            //clientDataGridView[4, currentRowIndex].Value = selectedClient.Status;
+
+            //MessageBox.Show("Client updated successfuly!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            deleteClient = true;
+            try
+            {
+                clientManager.Delete(selectedClient.ClientId);
+                MessageBox.Show("Client deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            clientDataGridView.Rows.RemoveAt(clientDataGridView.CurrentRow.Index);
+                LoadClients();
 
-            clientManager.Delete(selectedClient.ClientId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //deleteClient = true;
 
-            deleteBtn.Enabled = false;
-            deleteClient = false;
+            //clientDataGridView.Rows.RemoveAt(clientDataGridView.CurrentRow.Index);
 
-            MessageBox.Show("Client deleted successfuly!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //clientManager.Delete(selectedClient.ClientId);
 
-            ClearUserInterface();
-            //.Clear();
+            //deleteBtn.Enabled = false;
+            //deleteClient = false;
 
-            currentRowIndex = -1;
+            //MessageBox.Show("Client deleted successfuly!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            LoadClients();
+            //ClearUserInterface();
+            ////.Clear();
+
+            //currentRowIndex = -1;
+
+            //LoadClients();
         }
 
         private void ClearUserInterface()
@@ -248,6 +270,75 @@ namespace WindowsFormsApp1
         private void clientBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void clientDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedRow = clientDataGridView.Rows[e.RowIndex];
+                selectedClient = (Client)selectedRow.DataBoundItem;
+            }
+        }
+
+        private void addExcursion_Click(object sender, EventArgs e)
+        {
+            if (selectedClient == null)
+            {
+                MessageBox.Show("You need to select a client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (int.TryParse(excursionIdTxtBox.Text, out int excursionId))
+            {
+                Excursion excursionToAdd = context.Excursions.Include(e => e.Clients).FirstOrDefault(e => e.ExcursionId == excursionId);
+
+                if (excursionToAdd == null)
+                {
+                    MessageBox.Show("There is no excursion with this ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                context.Entry(selectedClient).Collection(c => c.Excursions).Load();
+                if (selectedClient.Excursions.Contains(excursionToAdd))
+                {
+                    MessageBox.Show("This excursion is already added to the current client.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                selectedClient.Excursions.Add(excursionToAdd);
+
+                excursionToAdd.Clients.Add(selectedClient);
+
+                context.SaveChanges();
+                MessageBox.Show("The excursion was added to the client successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Invalid ID. Please enter a whole number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void showAllExcursions_Click(object sender, EventArgs e)
+        {
+            if (selectedClient == null)
+            {
+                MessageBox.Show("You need to select a client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            context.Entry(selectedClient).Collection(c => c.Excursions).Load();
+
+            if (!selectedClient.Excursions.Any())
+            {
+                MessageBox.Show("The selected client hasn't been to any excursions.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var cities = context.Cities.ToDictionary(c => c.CityId);
+            List<string> excursionInfo = selectedClient.Excursions.Select(e => cities.TryGetValue(e.CityId, out City city)
+            ? $"{city.Name}, {city.Country}" : "Unknown City").ToList();
+            excursionsListBox.DataSource = excursionInfo;
         }
     }
 }

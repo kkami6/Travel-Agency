@@ -45,134 +45,128 @@
             deleteBtn = new Button();
             updateBtn = new Button();
             dataGridView1 = new DataGridView();
-            employeeBindingSource = new BindingSource(components);
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             secondNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             familyNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             positionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            employeeBindingSource = new BindingSource(components);
+            label1 = new Label();
+            excursionIdTxtBox = new TextBox();
+            addExcursion = new Button();
+            showAllExcursions = new Button();
+            excursionsListBox = new ListBox();
+            employeeContextBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)employeeContextBindingSource).BeginInit();
             SuspendLayout();
             // 
             // nameLbl
             // 
             nameLbl.AutoSize = true;
-            nameLbl.Location = new Point(96, 50);
-            nameLbl.Margin = new Padding(4, 0, 4, 0);
+            nameLbl.Location = new Point(77, 40);
             nameLbl.Name = "nameLbl";
-            nameLbl.Size = new Size(59, 25);
+            nameLbl.Size = new Size(49, 20);
             nameLbl.TabIndex = 0;
             nameLbl.Text = "Name";
             // 
             // nameTxtBox
             // 
-            nameTxtBox.Location = new Point(160, 46);
-            nameTxtBox.Margin = new Padding(4);
+            nameTxtBox.Location = new Point(128, 37);
             nameTxtBox.Name = "nameTxtBox";
-            nameTxtBox.Size = new Size(110, 31);
+            nameTxtBox.Size = new Size(89, 27);
             nameTxtBox.TabIndex = 1;
             // 
             // name2Lbl
             // 
             name2Lbl.AutoSize = true;
-            name2Lbl.Location = new Point(34, 120);
-            name2Lbl.Margin = new Padding(4, 0, 4, 0);
+            name2Lbl.Location = new Point(27, 96);
             name2Lbl.Name = "name2Lbl";
-            name2Lbl.Size = new Size(120, 25);
+            name2Lbl.Size = new Size(99, 20);
             name2Lbl.TabIndex = 2;
             name2Lbl.Text = "Second name";
             // 
             // name3Lbl
             // 
             name3Lbl.AutoSize = true;
-            name3Lbl.Location = new Point(45, 182);
-            name3Lbl.Margin = new Padding(4, 0, 4, 0);
+            name3Lbl.Location = new Point(36, 146);
             name3Lbl.Name = "name3Lbl";
-            name3Lbl.Size = new Size(111, 25);
+            name3Lbl.Size = new Size(92, 20);
             name3Lbl.TabIndex = 3;
             name3Lbl.Text = "Family name";
             // 
             // ageLbl
             // 
             ageLbl.AutoSize = true;
-            ageLbl.Location = new Point(322, 50);
-            ageLbl.Margin = new Padding(4, 0, 4, 0);
+            ageLbl.Location = new Point(258, 40);
             ageLbl.Name = "ageLbl";
-            ageLbl.Size = new Size(113, 25);
+            ageLbl.Size = new Size(94, 20);
             ageLbl.TabIndex = 4;
             ageLbl.Text = "Date of birth";
             // 
             // positionLbl
             // 
             positionLbl.AutoSize = true;
-            positionLbl.Location = new Point(358, 116);
-            positionLbl.Margin = new Padding(4, 0, 4, 0);
+            positionLbl.Location = new Point(286, 93);
             positionLbl.Name = "positionLbl";
-            positionLbl.Size = new Size(75, 25);
+            positionLbl.Size = new Size(61, 20);
             positionLbl.TabIndex = 5;
             positionLbl.Text = "Position";
             // 
             // salaryLbl
             // 
             salaryLbl.AutoSize = true;
-            salaryLbl.Location = new Point(371, 182);
-            salaryLbl.Margin = new Padding(4, 0, 4, 0);
+            salaryLbl.Location = new Point(297, 146);
             salaryLbl.Name = "salaryLbl";
-            salaryLbl.Size = new Size(59, 25);
+            salaryLbl.Size = new Size(49, 20);
             salaryLbl.TabIndex = 6;
             salaryLbl.Text = "Salary";
             // 
             // name2TxtBox
             // 
-            name2TxtBox.Location = new Point(160, 112);
-            name2TxtBox.Margin = new Padding(4);
+            name2TxtBox.Location = new Point(128, 90);
             name2TxtBox.Name = "name2TxtBox";
-            name2TxtBox.Size = new Size(110, 31);
+            name2TxtBox.Size = new Size(89, 27);
             name2TxtBox.TabIndex = 7;
             // 
             // name3TxtBox
             // 
-            name3TxtBox.Location = new Point(160, 179);
-            name3TxtBox.Margin = new Padding(4);
+            name3TxtBox.Location = new Point(128, 143);
             name3TxtBox.Name = "name3TxtBox";
-            name3TxtBox.Size = new Size(110, 31);
+            name3TxtBox.Size = new Size(89, 27);
             name3TxtBox.TabIndex = 8;
             // 
             // agePicker
             // 
-            agePicker.Location = new Point(436, 46);
-            agePicker.Margin = new Padding(4);
+            agePicker.Location = new Point(349, 37);
             agePicker.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             agePicker.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
             agePicker.Name = "agePicker";
-            agePicker.Size = new Size(222, 31);
+            agePicker.Size = new Size(178, 27);
             agePicker.TabIndex = 12;
             agePicker.Value = new DateTime(2025, 5, 4, 0, 0, 0, 0);
             // 
             // positionTxtBox
             // 
-            positionTxtBox.Location = new Point(436, 112);
-            positionTxtBox.Margin = new Padding(4);
+            positionTxtBox.Location = new Point(349, 90);
             positionTxtBox.Name = "positionTxtBox";
-            positionTxtBox.Size = new Size(110, 31);
+            positionTxtBox.Size = new Size(89, 27);
             positionTxtBox.TabIndex = 13;
             // 
             // salaryTxtBox
             // 
-            salaryTxtBox.Location = new Point(436, 179);
-            salaryTxtBox.Margin = new Padding(4);
+            salaryTxtBox.Location = new Point(349, 143);
             salaryTxtBox.Name = "salaryTxtBox";
-            salaryTxtBox.Size = new Size(110, 31);
+            salaryTxtBox.Size = new Size(89, 27);
             salaryTxtBox.TabIndex = 14;
             // 
             // createBtn
             // 
-            createBtn.Location = new Point(197, 255);
-            createBtn.Margin = new Padding(4);
+            createBtn.Location = new Point(158, 204);
             createBtn.Name = "createBtn";
-            createBtn.Size = new Size(100, 58);
+            createBtn.Size = new Size(80, 46);
             createBtn.TabIndex = 15;
             createBtn.Text = "Create";
             createBtn.UseVisualStyleBackColor = true;
@@ -180,10 +174,9 @@
             // 
             // deleteBtn
             // 
-            deleteBtn.Location = new Point(524, 255);
-            deleteBtn.Margin = new Padding(4);
+            deleteBtn.Location = new Point(419, 204);
             deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(100, 58);
+            deleteBtn.Size = new Size(80, 46);
             deleteBtn.TabIndex = 16;
             deleteBtn.Text = "Delete";
             deleteBtn.UseVisualStyleBackColor = true;
@@ -191,10 +184,9 @@
             // 
             // updateBtn
             // 
-            updateBtn.Location = new Point(358, 255);
-            updateBtn.Margin = new Padding(4);
+            updateBtn.Location = new Point(286, 204);
             updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(100, 58);
+            updateBtn.Size = new Size(80, 46);
             updateBtn.TabIndex = 17;
             updateBtn.Text = "Upate";
             updateBtn.UseVisualStyleBackColor = true;
@@ -206,16 +198,13 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, secondNameDataGridViewTextBoxColumn, familyNameDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, positionDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn });
             dataGridView1.DataSource = employeeBindingSource;
-            dataGridView1.Location = new Point(12, 320);
+            dataGridView1.Location = new Point(10, 256);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(969, 161);
+            dataGridView1.Size = new Size(775, 129);
             dataGridView1.TabIndex = 18;
-            // 
-            // employeeBindingSource
-            // 
-            employeeBindingSource.AllowNew = true;
-            employeeBindingSource.DataSource = typeof(BusinessLayer.Employee);
+            dataGridView1.RowHeaderMouseClick += dataGridView1_RowHeaderMouseClick;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -265,11 +254,65 @@
             salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
             salaryDataGridViewTextBoxColumn.Width = 150;
             // 
+            // employeeBindingSource
+            // 
+            employeeBindingSource.AllowNew = true;
+            employeeBindingSource.DataSource = typeof(BusinessLayer.Employee);
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(850, 37);
+            label1.Name = "label1";
+            label1.Size = new Size(222, 20);
+            label1.TabIndex = 19;
+            label1.Text = "To add an excursion write the ID";
+            // 
+            // excursionIdTxtBox
+            // 
+            excursionIdTxtBox.Location = new Point(878, 60);
+            excursionIdTxtBox.Name = "excursionIdTxtBox";
+            excursionIdTxtBox.Size = new Size(125, 27);
+            excursionIdTxtBox.TabIndex = 20;
+            // 
+            // addExcursion
+            // 
+            addExcursion.Location = new Point(892, 96);
+            addExcursion.Name = "addExcursion";
+            addExcursion.Size = new Size(97, 53);
+            addExcursion.TabIndex = 21;
+            addExcursion.Text = "Add excursion";
+            addExcursion.UseVisualStyleBackColor = true;
+            addExcursion.Click += addExcursion_Click;
+            // 
+            // showAllExcursions
+            // 
+            showAllExcursions.Location = new Point(892, 155);
+            showAllExcursions.Name = "showAllExcursions";
+            showAllExcursions.Size = new Size(97, 57);
+            showAllExcursions.TabIndex = 22;
+            showAllExcursions.Text = "Show all excursions";
+            showAllExcursions.UseVisualStyleBackColor = true;
+            showAllExcursions.Click += showAllExcursions_Click;
+            // 
+            // excursionsListBox
+            // 
+            excursionsListBox.FormattingEnabled = true;
+            excursionsListBox.Location = new Point(850, 229);
+            excursionsListBox.Name = "excursionsListBox";
+            excursionsListBox.Size = new Size(222, 124);
+            excursionsListBox.TabIndex = 23;
+            // 
             // EmployeeForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1038, 562);
+            ClientSize = new Size(1113, 450);
+            Controls.Add(excursionsListBox);
+            Controls.Add(showAllExcursions);
+            Controls.Add(addExcursion);
+            Controls.Add(excursionIdTxtBox);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(updateBtn);
             Controls.Add(deleteBtn);
@@ -286,12 +329,12 @@
             Controls.Add(name2Lbl);
             Controls.Add(nameTxtBox);
             Controls.Add(nameLbl);
-            Margin = new Padding(4);
             Name = "EmployeeForm";
             Text = "EmployeeForm";
             Load += EmployeeForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)employeeContextBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -321,5 +364,11 @@
         private DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
         private BindingSource employeeBindingSource;
+        private Label label1;
+        private TextBox excursionIdTxtBox;
+        private Button addExcursion;
+        private Button showAllExcursions;
+        private ListBox excursionsListBox;
+        private BindingSource employeeContextBindingSource;
     }
 }

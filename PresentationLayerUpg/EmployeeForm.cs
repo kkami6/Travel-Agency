@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using DataLayer;
+using Microsoft.EntityFrameworkCore;
 using ServiceLayer;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,8 @@ namespace WindowsFormsApp1
             context = new TravelAgencyDbContext();
             employeeContext = new EmployeesContext(context);
             employeeManager = new Manager<Employee, int>(employeeContext);
+            employeeContextBindingSource.DataSource = employeeManager.ReadAll();
+            dataGridView1.DataSource = employeeContextBindingSource;
         }
 
         private void EmployeeForm_Load(object sender, EventArgs e)
@@ -125,6 +128,76 @@ namespace WindowsFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void addExcursion_Click(object sender, EventArgs e)
+        {
+            if (selectedEmployee == null)
+            {
+                MessageBox.Show("You need to select an employee first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (int.TryParse(excursionIdTxtBox.Text, out int excursionId))
+            {
+                Excursion excursionToAdd = context.Excursions.Include(e => e.Employees).FirstOrDefault(e => e.ExcursionId == excursionId);
+
+                if (excursionToAdd == null)
+                {
+                    MessageBox.Show("There is no excursion with this ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                context.Entry(selectedEmployee).Collection(e => e.Excursions).Load();
+
+                if (selectedEmployee.Excursions.Contains(excursionToAdd))
+                {
+                    MessageBox.Show("This excursion is already added to the current employee.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                selectedEmployee.Excursions.Add(excursionToAdd);
+
+                excursionToAdd.Employees.Add(selectedEmployee);
+
+                context.SaveChanges();
+                MessageBox.Show("The excursion was added to the employee successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Invalid ID. Please enter a whole number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void showAllExcursions_Click(object sender, EventArgs e)
+        {
+            if (selectedEmployee == null)
+            {
+                MessageBox.Show("You need to select an employee first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            context.Entry(selectedEmployee).Collection(e => e.Excursions).Load();
+
+            if (!selectedEmployee.Excursions.Any())
+            {
+                MessageBox.Show("The selected employee hasn't been to any excursions.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var cities = context.Cities.ToDictionary(c => c.CityId);
+            List<string> excursionInfo = selectedEmployee.Excursions.Select(e => cities.TryGetValue(e.CityId, out City city) 
+            ? $"{city.Name}, {city.Country}" : "Unknown City").ToList();
+            excursionsListBox.DataSource = excursionInfo;
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedRow = dataGridView1.Rows[e.RowIndex];
+                selectedEmployee = (Employee)selectedRow.DataBoundItem;
             }
         }
     }

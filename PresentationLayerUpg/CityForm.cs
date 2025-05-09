@@ -29,6 +29,8 @@ namespace WindowsFormsApp1
             context = new TravelAgencyDbContext();
             cityContext = new CitiesContext(context);
             cityManager = new Manager<City, int>(cityContext);
+            cityContextBindingSource.DataSource = cityManager.ReadAll();
+            cityDataGridView.DataSource = cityContextBindingSource;
         }
 
 
@@ -120,6 +122,15 @@ namespace WindowsFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cityDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedRow = cityDataGridView.Rows[e.RowIndex];
+                selectedCity = (City)selectedRow.DataBoundItem;
             }
         }
     }

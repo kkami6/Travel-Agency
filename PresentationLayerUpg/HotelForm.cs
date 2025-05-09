@@ -22,19 +22,21 @@ namespace WindowsFormsApp1
         private Manager<Hotel, int> hotelManager;
         private HotelsContext hotelContext;
         private TravelAgencyDbContext context;
+
         public HotelForm()
         {
             InitializeComponent();
             context = new TravelAgencyDbContext();
             hotelContext = new HotelsContext(context);
             hotelManager = new Manager<Hotel, int>(hotelContext);
+            hotelContextBindingSource.DataSource = hotelManager.ReadAll();
+            dataGridView1.DataSource = hotelContextBindingSource;
         }
 
         private void HotelForm_Load(object sender, EventArgs e)
         {
             LoadHotels();
             cityTxtBox.Focus();
-            deleteBtn.Enabled = false;
         }
 
         private void createBtn_Click(object sender, EventArgs e)
@@ -119,6 +121,15 @@ namespace WindowsFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedRow = dataGridView1.Rows[e.RowIndex];
+                selectedHotel = (Hotel)selectedRow.DataBoundItem;
             }
         }
     }

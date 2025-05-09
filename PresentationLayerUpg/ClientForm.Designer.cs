@@ -51,6 +51,11 @@
             clientsContextTestsBindingSource = new BindingSource(components);
             updateBtn = new Button();
             excursionsBindingSource = new BindingSource(components);
+            label2 = new Label();
+            excursionIdTxtBox = new TextBox();
+            addExcursion = new Button();
+            showAllExcursions = new Button();
+            excursionsListBox = new ListBox();
             ((System.ComponentModel.ISupportInitialize)clientDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsContextTestsBindingSource).BeginInit();
@@ -60,83 +65,83 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new Point(72, 49);
+            nameLabel.Location = new Point(58, 39);
             nameLabel.Margin = new Padding(2, 0, 2, 0);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(64, 25);
+            nameLabel.Size = new Size(53, 20);
             nameLabel.TabIndex = 0;
             nameLabel.Text = "Name ";
             // 
             // nameTxtBox
             // 
-            nameTxtBox.Location = new Point(140, 45);
-            nameTxtBox.Margin = new Padding(2, 4, 2, 4);
+            nameTxtBox.Location = new Point(112, 36);
+            nameTxtBox.Margin = new Padding(2, 3, 2, 3);
             nameTxtBox.Name = "nameTxtBox";
-            nameTxtBox.Size = new Size(112, 31);
+            nameTxtBox.Size = new Size(90, 27);
             nameTxtBox.TabIndex = 1;
             // 
             // Label1
             // 
             Label1.AutoSize = true;
-            Label1.Location = new Point(12, 104);
+            Label1.Location = new Point(10, 83);
             Label1.Margin = new Padding(2, 0, 2, 0);
             Label1.Name = "Label1";
-            Label1.Size = new Size(123, 25);
+            Label1.Size = new Size(102, 20);
             Label1.TabIndex = 2;
             Label1.Text = "Second Name";
             // 
             // Name3Label
             // 
             Name3Label.AutoSize = true;
-            Name3Label.Location = new Point(24, 170);
+            Name3Label.Location = new Point(19, 136);
             Name3Label.Margin = new Padding(2, 0, 2, 0);
             Name3Label.Name = "Name3Label";
-            Name3Label.Size = new Size(114, 25);
+            Name3Label.Size = new Size(95, 20);
             Name3Label.TabIndex = 3;
             Name3Label.Text = "Family Name";
             // 
             // name2TxtBox
             // 
-            name2TxtBox.Location = new Point(140, 104);
-            name2TxtBox.Margin = new Padding(2, 4, 2, 4);
+            name2TxtBox.Location = new Point(112, 83);
+            name2TxtBox.Margin = new Padding(2, 3, 2, 3);
             name2TxtBox.Name = "name2TxtBox";
-            name2TxtBox.Size = new Size(112, 31);
+            name2TxtBox.Size = new Size(90, 27);
             name2TxtBox.TabIndex = 4;
             // 
             // name3TxtBox
             // 
-            name3TxtBox.Location = new Point(140, 166);
-            name3TxtBox.Margin = new Padding(2, 4, 2, 4);
+            name3TxtBox.Location = new Point(112, 133);
+            name3TxtBox.Margin = new Padding(2, 3, 2, 3);
             name3TxtBox.Name = "name3TxtBox";
-            name3TxtBox.Size = new Size(112, 31);
+            name3TxtBox.Size = new Size(90, 27);
             name3TxtBox.TabIndex = 5;
             // 
             // ageLabel
             // 
             ageLabel.AutoSize = true;
-            ageLabel.Location = new Point(308, 49);
+            ageLabel.Location = new Point(246, 39);
             ageLabel.Margin = new Padding(2, 0, 2, 0);
             ageLabel.Name = "ageLabel";
-            ageLabel.Size = new Size(112, 25);
+            ageLabel.Size = new Size(94, 20);
             ageLabel.TabIndex = 6;
             ageLabel.Text = "Date of Birth";
             // 
             // statusLabel
             // 
             statusLabel.AutoSize = true;
-            statusLabel.Location = new Point(351, 104);
+            statusLabel.Location = new Point(281, 83);
             statusLabel.Margin = new Padding(2, 0, 2, 0);
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(64, 25);
+            statusLabel.Size = new Size(52, 20);
             statusLabel.TabIndex = 7;
             statusLabel.Text = "Status:";
             // 
             // createBtn
             // 
-            createBtn.Location = new Point(140, 271);
-            createBtn.Margin = new Padding(2, 4, 2, 4);
+            createBtn.Location = new Point(112, 217);
+            createBtn.Margin = new Padding(2, 3, 2, 3);
             createBtn.Name = "createBtn";
-            createBtn.Size = new Size(82, 40);
+            createBtn.Size = new Size(76, 40);
             createBtn.TabIndex = 9;
             createBtn.Text = "Create";
             createBtn.UseVisualStyleBackColor = true;
@@ -144,10 +149,10 @@
             // 
             // deleteBtn
             // 
-            deleteBtn.Location = new Point(484, 271);
-            deleteBtn.Margin = new Padding(2, 4, 2, 4);
+            deleteBtn.Location = new Point(387, 217);
+            deleteBtn.Margin = new Padding(2, 3, 2, 3);
             deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(90, 40);
+            deleteBtn.Size = new Size(78, 40);
             deleteBtn.TabIndex = 11;
             deleteBtn.Text = "Delete";
             deleteBtn.UseVisualStyleBackColor = true;
@@ -155,22 +160,22 @@
             // 
             // agePicker
             // 
-            agePicker.Location = new Point(426, 44);
-            agePicker.Margin = new Padding(2, 4, 2, 4);
+            agePicker.Location = new Point(341, 35);
+            agePicker.Margin = new Padding(2, 3, 2, 3);
             agePicker.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             agePicker.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
             agePicker.Name = "agePicker";
-            agePicker.Size = new Size(222, 31);
+            agePicker.Size = new Size(178, 27);
             agePicker.TabIndex = 12;
             agePicker.Value = new DateTime(2025, 5, 3, 0, 0, 0, 0);
             // 
             // statusCheck
             // 
             statusCheck.AutoSize = true;
-            statusCheck.Location = new Point(424, 102);
-            statusCheck.Margin = new Padding(2, 4, 2, 4);
+            statusCheck.Location = new Point(339, 82);
+            statusCheck.Margin = new Padding(2, 3, 2, 3);
             statusCheck.Name = "statusCheck";
-            statusCheck.Size = new Size(79, 29);
+            statusCheck.Size = new Size(66, 24);
             statusCheck.TabIndex = 13;
             statusCheck.Text = "Loyal";
             statusCheck.UseVisualStyleBackColor = true;
@@ -181,13 +186,14 @@
             clientDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             clientDataGridView.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, secondNameDataGridViewTextBoxColumn, familyNameDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
             clientDataGridView.DataSource = clientBindingSource;
-            clientDataGridView.Location = new Point(72, 347);
+            clientDataGridView.Location = new Point(58, 278);
             clientDataGridView.Margin = new Padding(2);
             clientDataGridView.Name = "clientDataGridView";
             clientDataGridView.RowHeadersWidth = 62;
-            clientDataGridView.Size = new Size(823, 185);
+            clientDataGridView.Size = new Size(658, 148);
             clientDataGridView.TabIndex = 14;
             clientDataGridView.CellContentClick += clientDataGridView_CellContentClick;
+            clientDataGridView.RowHeaderMouseClick += clientDataGridView_RowHeaderMouseClick;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -240,10 +246,10 @@
             // 
             // updateBtn
             // 
-            updateBtn.Location = new Point(308, 271);
-            updateBtn.Margin = new Padding(2, 4, 2, 4);
+            updateBtn.Location = new Point(246, 217);
+            updateBtn.Margin = new Padding(2, 3, 2, 3);
             updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(90, 40);
+            updateBtn.Size = new Size(77, 40);
             updateBtn.TabIndex = 15;
             updateBtn.Text = "Update";
             updateBtn.UseVisualStyleBackColor = true;
@@ -253,11 +259,60 @@
             // 
             excursionsBindingSource.DataMember = "Excursions";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(787, 35);
+            label2.Name = "label2";
+            label2.Size = new Size(222, 20);
+            label2.TabIndex = 16;
+            label2.Text = "To add an excursion write the ID";
+            // 
+            // excursionIdTxtBox
+            // 
+            excursionIdTxtBox.Location = new Point(806, 58);
+            excursionIdTxtBox.Name = "excursionIdTxtBox";
+            excursionIdTxtBox.Size = new Size(125, 27);
+            excursionIdTxtBox.TabIndex = 17;
+            // 
+            // addExcursion
+            // 
+            addExcursion.Location = new Point(822, 91);
+            addExcursion.Name = "addExcursion";
+            addExcursion.Size = new Size(94, 50);
+            addExcursion.TabIndex = 18;
+            addExcursion.Text = "Add excursion";
+            addExcursion.UseVisualStyleBackColor = true;
+            addExcursion.Click += addExcursion_Click;
+            // 
+            // showAllExcursions
+            // 
+            showAllExcursions.Location = new Point(822, 156);
+            showAllExcursions.Name = "showAllExcursions";
+            showAllExcursions.Size = new Size(94, 55);
+            showAllExcursions.TabIndex = 19;
+            showAllExcursions.Text = "Show all excursions";
+            showAllExcursions.UseVisualStyleBackColor = true;
+            showAllExcursions.Click += showAllExcursions_Click;
+            // 
+            // excursionsListBox
+            // 
+            excursionsListBox.FormattingEnabled = true;
+            excursionsListBox.Location = new Point(787, 233);
+            excursionsListBox.Name = "excursionsListBox";
+            excursionsListBox.Size = new Size(222, 124);
+            excursionsListBox.TabIndex = 20;
+            // 
             // ClientForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1031, 596);
+            ClientSize = new Size(1081, 477);
+            Controls.Add(excursionsListBox);
+            Controls.Add(showAllExcursions);
+            Controls.Add(addExcursion);
+            Controls.Add(excursionIdTxtBox);
+            Controls.Add(label2);
             Controls.Add(updateBtn);
             Controls.Add(clientDataGridView);
             Controls.Add(statusCheck);
@@ -272,7 +327,7 @@
             Controls.Add(Label1);
             Controls.Add(nameTxtBox);
             Controls.Add(nameLabel);
-            Margin = new Padding(2, 4, 2, 4);
+            Margin = new Padding(2, 3, 2, 3);
             Name = "ClientForm";
             Text = "Client Form";
             Load += ClientForm_Load;
@@ -308,5 +363,10 @@
         private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private BindingSource clientBindingSource;
+        private Label label2;
+        private TextBox excursionIdTxtBox;
+        private Button addExcursion;
+        private Button showAllExcursions;
+        private ListBox excursionsListBox;
     }
 }

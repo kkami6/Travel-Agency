@@ -41,50 +41,55 @@
             countryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cityBindingSource = new BindingSource(components);
             testManagerBindingSource = new BindingSource(components);
+            cityContextBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)cityDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cityBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)testManagerBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cityContextBindingSource).BeginInit();
             SuspendLayout();
             // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new Point(46, 50);
+            nameLabel.Location = new Point(37, 40);
+            nameLabel.Margin = new Padding(2, 0, 2, 0);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(59, 25);
+            nameLabel.Size = new Size(49, 20);
             nameLabel.TabIndex = 0;
             nameLabel.Text = "Name";
             // 
             // nameTxtBox
             // 
-            nameTxtBox.Location = new Point(109, 46);
-            nameTxtBox.Margin = new Padding(3, 4, 3, 4);
+            nameTxtBox.Location = new Point(87, 37);
+            nameTxtBox.Margin = new Padding(2, 3, 2, 3);
             nameTxtBox.Name = "nameTxtBox";
-            nameTxtBox.Size = new Size(140, 31);
+            nameTxtBox.Size = new Size(113, 27);
             nameTxtBox.TabIndex = 1;
             // 
             // countryLabel
             // 
             countryLabel.AutoSize = true;
-            countryLabel.Location = new Point(31, 120);
+            countryLabel.Location = new Point(25, 96);
+            countryLabel.Margin = new Padding(2, 0, 2, 0);
             countryLabel.Name = "countryLabel";
-            countryLabel.Size = new Size(75, 25);
+            countryLabel.Size = new Size(60, 20);
             countryLabel.TabIndex = 2;
             countryLabel.Text = "Country";
             // 
             // countryTxtBox
             // 
-            countryTxtBox.Location = new Point(109, 120);
-            countryTxtBox.Margin = new Padding(3, 4, 3, 4);
+            countryTxtBox.Location = new Point(87, 96);
+            countryTxtBox.Margin = new Padding(2, 3, 2, 3);
             countryTxtBox.Name = "countryTxtBox";
-            countryTxtBox.Size = new Size(140, 31);
+            countryTxtBox.Size = new Size(113, 27);
             countryTxtBox.TabIndex = 3;
             // 
             // createBtn
             // 
-            createBtn.Location = new Point(152, 242);
+            createBtn.Location = new Point(122, 194);
+            createBtn.Margin = new Padding(2);
             createBtn.Name = "createBtn";
-            createBtn.Size = new Size(120, 54);
+            createBtn.Size = new Size(96, 43);
             createBtn.TabIndex = 4;
             createBtn.Text = "Create";
             createBtn.UseVisualStyleBackColor = true;
@@ -92,10 +97,10 @@
             // 
             // updateBtn
             // 
-            updateBtn.Enabled = false;
-            updateBtn.Location = new Point(322, 242);
+            updateBtn.Location = new Point(258, 194);
+            updateBtn.Margin = new Padding(2);
             updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(120, 54);
+            updateBtn.Size = new Size(96, 43);
             updateBtn.TabIndex = 5;
             updateBtn.Text = "Update";
             updateBtn.UseVisualStyleBackColor = true;
@@ -103,10 +108,10 @@
             // 
             // deleteBtn
             // 
-            deleteBtn.Enabled = false;
-            deleteBtn.Location = new Point(494, 242);
+            deleteBtn.Location = new Point(395, 194);
+            deleteBtn.Margin = new Padding(2);
             deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(120, 54);
+            deleteBtn.Size = new Size(96, 43);
             deleteBtn.TabIndex = 6;
             deleteBtn.Text = "Delete";
             deleteBtn.UseVisualStyleBackColor = true;
@@ -118,12 +123,14 @@
             cityDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             cityDataGridView.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, countryDataGridViewTextBoxColumn });
             cityDataGridView.DataSource = cityBindingSource;
-            cityDataGridView.Location = new Point(152, 332);
+            cityDataGridView.Location = new Point(122, 266);
+            cityDataGridView.Margin = new Padding(2);
             cityDataGridView.Name = "cityDataGridView";
             cityDataGridView.RowHeadersWidth = 62;
-            cityDataGridView.Size = new Size(568, 206);
+            cityDataGridView.Size = new Size(454, 165);
             cityDataGridView.TabIndex = 7;
             cityDataGridView.CellContentClick += dataGridView1_CellContentClick;
+            cityDataGridView.RowHeaderMouseClick += cityDataGridView_RowHeaderMouseClick;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -152,9 +159,9 @@
             // 
             // CityForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(889, 562);
+            ClientSize = new Size(711, 450);
             Controls.Add(cityDataGridView);
             Controls.Add(deleteBtn);
             Controls.Add(updateBtn);
@@ -163,16 +170,16 @@
             Controls.Add(countryLabel);
             Controls.Add(nameTxtBox);
             Controls.Add(nameLabel);
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(2, 3, 2, 3);
             Name = "CityForm";
             Text = "City";
             Load += CityForm_Load;
             ((System.ComponentModel.ISupportInitialize)cityDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)cityBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)testManagerBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cityContextBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
-
         }
 
         #endregion
@@ -189,5 +196,6 @@
         private DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
         private BindingSource cityBindingSource;
         private BindingSource testManagerBindingSource;
+        private BindingSource cityContextBindingSource;
     }
 }
