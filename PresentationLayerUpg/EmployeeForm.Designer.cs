@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             nameLbl = new Label();
             nameTxtBox = new TextBox();
             name2Lbl = new Label();
@@ -43,6 +44,16 @@
             createBtn = new Button();
             deleteBtn = new Button();
             updateBtn = new Button();
+            dataGridView1 = new DataGridView();
+            employeeBindingSource = new BindingSource(components);
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            secondNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            familyNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            positionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
             SuspendLayout();
             // 
             // nameLbl
@@ -158,7 +169,7 @@
             // 
             // createBtn
             // 
-            createBtn.Location = new Point(187, 344);
+            createBtn.Location = new Point(197, 255);
             createBtn.Margin = new Padding(4);
             createBtn.Name = "createBtn";
             createBtn.Size = new Size(100, 58);
@@ -169,7 +180,7 @@
             // 
             // deleteBtn
             // 
-            deleteBtn.Location = new Point(535, 344);
+            deleteBtn.Location = new Point(524, 255);
             deleteBtn.Margin = new Padding(4);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(100, 58);
@@ -180,7 +191,7 @@
             // 
             // updateBtn
             // 
-            updateBtn.Location = new Point(358, 344);
+            updateBtn.Location = new Point(358, 255);
             updateBtn.Margin = new Padding(4);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(100, 58);
@@ -189,11 +200,77 @@
             updateBtn.UseVisualStyleBackColor = true;
             updateBtn.Click += updateBtn_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, secondNameDataGridViewTextBoxColumn, familyNameDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, positionDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = employeeBindingSource;
+            dataGridView1.Location = new Point(12, 320);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(969, 161);
+            dataGridView1.TabIndex = 18;
+            // 
+            // employeeBindingSource
+            // 
+            employeeBindingSource.AllowNew = true;
+            employeeBindingSource.DataSource = typeof(BusinessLayer.Employee);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // secondNameDataGridViewTextBoxColumn
+            // 
+            secondNameDataGridViewTextBoxColumn.DataPropertyName = "SecondName";
+            secondNameDataGridViewTextBoxColumn.HeaderText = "SecondName";
+            secondNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            secondNameDataGridViewTextBoxColumn.Name = "secondNameDataGridViewTextBoxColumn";
+            secondNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // familyNameDataGridViewTextBoxColumn
+            // 
+            familyNameDataGridViewTextBoxColumn.DataPropertyName = "FamilyName";
+            familyNameDataGridViewTextBoxColumn.HeaderText = "FamilyName";
+            familyNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            familyNameDataGridViewTextBoxColumn.Name = "familyNameDataGridViewTextBoxColumn";
+            familyNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            ageDataGridViewTextBoxColumn.MinimumWidth = 8;
+            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            ageDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // positionDataGridViewTextBoxColumn
+            // 
+            positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
+            positionDataGridViewTextBoxColumn.HeaderText = "Position";
+            positionDataGridViewTextBoxColumn.MinimumWidth = 8;
+            positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            positionDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // salaryDataGridViewTextBoxColumn
+            // 
+            salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
+            salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
+            salaryDataGridViewTextBoxColumn.MinimumWidth = 8;
+            salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            salaryDataGridViewTextBoxColumn.Width = 150;
+            // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(889, 562);
+            ClientSize = new Size(1038, 562);
+            Controls.Add(dataGridView1);
             Controls.Add(updateBtn);
             Controls.Add(deleteBtn);
             Controls.Add(createBtn);
@@ -213,6 +290,8 @@
             Name = "EmployeeForm";
             Text = "EmployeeForm";
             Load += EmployeeForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -234,5 +313,13 @@
         private System.Windows.Forms.Button createBtn;
         private System.Windows.Forms.Button deleteBtn;
         private Button updateBtn;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn secondNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn familyNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
+        private BindingSource employeeBindingSource;
     }
 }

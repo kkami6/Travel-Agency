@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             cityLbl = new Label();
             hotelLbl = new Label();
             priceLbl = new Label();
@@ -41,6 +42,15 @@
             priceTxtBox = new TextBox();
             departureDateTimePicker = new DateTimePicker();
             returnDateTimePicker = new DateTimePicker();
+            dataGridView1 = new DataGridView();
+            excursionBindingSource2 = new BindingSource(components);
+            cityIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            hotelIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            departureDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            returnDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)excursionBindingSource2).BeginInit();
             SuspendLayout();
             // 
             // cityLbl
@@ -90,7 +100,7 @@
             // 
             // createBtn
             // 
-            createBtn.Location = new Point(220, 361);
+            createBtn.Location = new Point(226, 302);
             createBtn.Margin = new Padding(3, 4, 3, 4);
             createBtn.Name = "createBtn";
             createBtn.Size = new Size(119, 56);
@@ -101,7 +111,7 @@
             // 
             // deleteBtn
             // 
-            deleteBtn.Location = new Point(553, 361);
+            deleteBtn.Location = new Point(553, 302);
             deleteBtn.Margin = new Padding(3, 4, 3, 4);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(119, 56);
@@ -112,7 +122,7 @@
             // 
             // updateBtn
             // 
-            updateBtn.Location = new Point(389, 361);
+            updateBtn.Location = new Point(386, 302);
             updateBtn.Margin = new Padding(3, 4, 3, 4);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(119, 56);
@@ -156,11 +166,69 @@
             returnDateTimePicker.Size = new Size(300, 31);
             returnDateTimePicker.TabIndex = 14;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { cityIdDataGridViewTextBoxColumn, hotelIdDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, departureDateDataGridViewTextBoxColumn, returnDateDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = excursionBindingSource2;
+            dataGridView1.Location = new Point(87, 365);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(824, 171);
+            dataGridView1.TabIndex = 15;
+            // 
+            // excursionBindingSource2
+            // 
+            excursionBindingSource2.AllowNew = true;
+            excursionBindingSource2.DataSource = typeof(BusinessLayer.Excursion);
+            // 
+            // cityIdDataGridViewTextBoxColumn
+            // 
+            cityIdDataGridViewTextBoxColumn.DataPropertyName = "CityId";
+            cityIdDataGridViewTextBoxColumn.HeaderText = "CityId";
+            cityIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            cityIdDataGridViewTextBoxColumn.Name = "cityIdDataGridViewTextBoxColumn";
+            cityIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // hotelIdDataGridViewTextBoxColumn
+            // 
+            hotelIdDataGridViewTextBoxColumn.DataPropertyName = "HotelId";
+            hotelIdDataGridViewTextBoxColumn.HeaderText = "HotelId";
+            hotelIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            hotelIdDataGridViewTextBoxColumn.Name = "hotelIdDataGridViewTextBoxColumn";
+            hotelIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            priceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            priceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // departureDateDataGridViewTextBoxColumn
+            // 
+            departureDateDataGridViewTextBoxColumn.DataPropertyName = "DepartureDate";
+            departureDateDataGridViewTextBoxColumn.HeaderText = "DepartureDate";
+            departureDateDataGridViewTextBoxColumn.MinimumWidth = 8;
+            departureDateDataGridViewTextBoxColumn.Name = "departureDateDataGridViewTextBoxColumn";
+            departureDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // returnDateDataGridViewTextBoxColumn
+            // 
+            returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
+            returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
+            returnDateDataGridViewTextBoxColumn.MinimumWidth = 8;
+            returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
+            returnDateDataGridViewTextBoxColumn.Width = 150;
+            // 
             // ExcursionForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(889, 562);
+            ClientSize = new Size(1129, 562);
+            Controls.Add(dataGridView1);
             Controls.Add(returnDateTimePicker);
             Controls.Add(departureDateTimePicker);
             Controls.Add(priceTxtBox);
@@ -178,6 +246,8 @@
             Name = "ExcursionForm";
             Text = "ExcursionForm";
             Load += ExcursionForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)excursionBindingSource2).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -198,5 +268,12 @@
         private TextBox priceTxtBox;
         private DateTimePicker departureDateTimePicker;
         private DateTimePicker returnDateTimePicker;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn cityIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn hotelIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn departureDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
+        private BindingSource excursionBindingSource2;
     }
 }
