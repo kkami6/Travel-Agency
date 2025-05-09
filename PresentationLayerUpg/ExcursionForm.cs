@@ -126,5 +126,15 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void excursionBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
