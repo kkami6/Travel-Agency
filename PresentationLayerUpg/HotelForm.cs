@@ -85,8 +85,6 @@ namespace WindowsFormsApp1
             try
             {
                 List<Hotel> hotels = hotelManager.ReadAll(true, false);
-                //hotelDataGridView.DataSource = hotels;
-                //hotelDataGridView.AutoResizeColumns();
             }
             catch (Exception ex)
             {

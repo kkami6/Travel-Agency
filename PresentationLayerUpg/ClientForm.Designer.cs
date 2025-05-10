@@ -42,11 +42,6 @@
             agePicker = new DateTimePicker();
             statusCheck = new CheckBox();
             clientDataGridView = new DataGridView();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            secondNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            familyNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             clientBindingSource = new BindingSource(components);
             clientsContextTestsBindingSource = new BindingSource(components);
             updateBtn = new Button();
@@ -56,6 +51,12 @@
             addExcursion = new Button();
             showAllExcursions = new Button();
             excursionsListBox = new ListBox();
+            ClientId = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            secondNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            familyNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)clientDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsContextTestsBindingSource).BeginInit();
@@ -184,56 +185,16 @@
             // 
             clientDataGridView.AutoGenerateColumns = false;
             clientDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            clientDataGridView.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, secondNameDataGridViewTextBoxColumn, familyNameDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
+            clientDataGridView.Columns.AddRange(new DataGridViewColumn[] { ClientId, nameDataGridViewTextBoxColumn, secondNameDataGridViewTextBoxColumn, familyNameDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
             clientDataGridView.DataSource = clientBindingSource;
             clientDataGridView.Location = new Point(58, 278);
             clientDataGridView.Margin = new Padding(2);
             clientDataGridView.Name = "clientDataGridView";
             clientDataGridView.RowHeadersWidth = 62;
-            clientDataGridView.Size = new Size(658, 148);
+            clientDataGridView.Size = new Size(689, 148);
             clientDataGridView.TabIndex = 14;
             clientDataGridView.CellContentClick += clientDataGridView_CellContentClick;
             clientDataGridView.RowHeaderMouseClick += clientDataGridView_RowHeaderMouseClick;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // secondNameDataGridViewTextBoxColumn
-            // 
-            secondNameDataGridViewTextBoxColumn.DataPropertyName = "SecondName";
-            secondNameDataGridViewTextBoxColumn.HeaderText = "SecondName";
-            secondNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            secondNameDataGridViewTextBoxColumn.Name = "secondNameDataGridViewTextBoxColumn";
-            secondNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // familyNameDataGridViewTextBoxColumn
-            // 
-            familyNameDataGridViewTextBoxColumn.DataPropertyName = "FamilyName";
-            familyNameDataGridViewTextBoxColumn.HeaderText = "FamilyName";
-            familyNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            familyNameDataGridViewTextBoxColumn.Name = "familyNameDataGridViewTextBoxColumn";
-            familyNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            ageDataGridViewTextBoxColumn.MinimumWidth = 8;
-            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            ageDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            statusDataGridViewTextBoxColumn.MinimumWidth = 8;
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.Width = 150;
             // 
             // clientBindingSource
             // 
@@ -303,6 +264,54 @@
             excursionsListBox.Size = new Size(222, 124);
             excursionsListBox.TabIndex = 20;
             // 
+            // ClientId
+            // 
+            ClientId.DataPropertyName = "ClientId";
+            ClientId.HeaderText = "ClientId";
+            ClientId.MinimumWidth = 6;
+            ClientId.Name = "ClientId";
+            ClientId.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // secondNameDataGridViewTextBoxColumn
+            // 
+            secondNameDataGridViewTextBoxColumn.DataPropertyName = "SecondName";
+            secondNameDataGridViewTextBoxColumn.HeaderText = "SecondName";
+            secondNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            secondNameDataGridViewTextBoxColumn.Name = "secondNameDataGridViewTextBoxColumn";
+            secondNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // familyNameDataGridViewTextBoxColumn
+            // 
+            familyNameDataGridViewTextBoxColumn.DataPropertyName = "FamilyName";
+            familyNameDataGridViewTextBoxColumn.HeaderText = "FamilyName";
+            familyNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            familyNameDataGridViewTextBoxColumn.Name = "familyNameDataGridViewTextBoxColumn";
+            familyNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            ageDataGridViewTextBoxColumn.MinimumWidth = 8;
+            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            ageDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.MinimumWidth = 8;
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.Width = 150;
+            // 
             // ClientForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -357,16 +366,17 @@
         private BindingSource clientsContextTestsBindingSource;
         private Button updateBtn;
         private BindingSource excursionsBindingSource;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn secondNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn familyNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private BindingSource clientBindingSource;
         private Label label2;
         private TextBox excursionIdTxtBox;
         private Button addExcursion;
         private Button showAllExcursions;
         private ListBox excursionsListBox;
+        private DataGridViewTextBoxColumn ClientId;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn secondNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn familyNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
     }
 }

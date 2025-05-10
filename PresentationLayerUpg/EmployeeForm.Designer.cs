@@ -45,12 +45,6 @@
             deleteBtn = new Button();
             updateBtn = new Button();
             dataGridView1 = new DataGridView();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            secondNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            familyNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            positionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             employeeBindingSource = new BindingSource(components);
             label1 = new Label();
             excursionIdTxtBox = new TextBox();
@@ -58,6 +52,13 @@
             showAllExcursions = new Button();
             excursionsListBox = new ListBox();
             employeeContextBindingSource = new BindingSource(components);
+            EmployeeId = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            secondNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            familyNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            positionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)employeeContextBindingSource).BeginInit();
@@ -196,7 +197,7 @@
             // 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, secondNameDataGridViewTextBoxColumn, familyNameDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, positionDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { EmployeeId, nameDataGridViewTextBoxColumn, secondNameDataGridViewTextBoxColumn, familyNameDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, positionDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn });
             dataGridView1.DataSource = employeeBindingSource;
             dataGridView1.Location = new Point(10, 256);
             dataGridView1.Margin = new Padding(2);
@@ -205,54 +206,6 @@
             dataGridView1.Size = new Size(775, 129);
             dataGridView1.TabIndex = 18;
             dataGridView1.RowHeaderMouseClick += dataGridView1_RowHeaderMouseClick;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // secondNameDataGridViewTextBoxColumn
-            // 
-            secondNameDataGridViewTextBoxColumn.DataPropertyName = "SecondName";
-            secondNameDataGridViewTextBoxColumn.HeaderText = "SecondName";
-            secondNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            secondNameDataGridViewTextBoxColumn.Name = "secondNameDataGridViewTextBoxColumn";
-            secondNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // familyNameDataGridViewTextBoxColumn
-            // 
-            familyNameDataGridViewTextBoxColumn.DataPropertyName = "FamilyName";
-            familyNameDataGridViewTextBoxColumn.HeaderText = "FamilyName";
-            familyNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            familyNameDataGridViewTextBoxColumn.Name = "familyNameDataGridViewTextBoxColumn";
-            familyNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            ageDataGridViewTextBoxColumn.MinimumWidth = 8;
-            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            ageDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // positionDataGridViewTextBoxColumn
-            // 
-            positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
-            positionDataGridViewTextBoxColumn.HeaderText = "Position";
-            positionDataGridViewTextBoxColumn.MinimumWidth = 8;
-            positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
-            positionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // salaryDataGridViewTextBoxColumn
-            // 
-            salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
-            salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
-            salaryDataGridViewTextBoxColumn.MinimumWidth = 8;
-            salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
-            salaryDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeBindingSource
             // 
@@ -302,6 +255,62 @@
             excursionsListBox.Name = "excursionsListBox";
             excursionsListBox.Size = new Size(222, 124);
             excursionsListBox.TabIndex = 23;
+            // 
+            // EmployeeId
+            // 
+            EmployeeId.DataPropertyName = "EmployeeId";
+            EmployeeId.HeaderText = "EmployeeId";
+            EmployeeId.MinimumWidth = 6;
+            EmployeeId.Name = "EmployeeId";
+            EmployeeId.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // secondNameDataGridViewTextBoxColumn
+            // 
+            secondNameDataGridViewTextBoxColumn.DataPropertyName = "SecondName";
+            secondNameDataGridViewTextBoxColumn.HeaderText = "SecondName";
+            secondNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            secondNameDataGridViewTextBoxColumn.Name = "secondNameDataGridViewTextBoxColumn";
+            secondNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // familyNameDataGridViewTextBoxColumn
+            // 
+            familyNameDataGridViewTextBoxColumn.DataPropertyName = "FamilyName";
+            familyNameDataGridViewTextBoxColumn.HeaderText = "FamilyName";
+            familyNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            familyNameDataGridViewTextBoxColumn.Name = "familyNameDataGridViewTextBoxColumn";
+            familyNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            ageDataGridViewTextBoxColumn.MinimumWidth = 8;
+            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            ageDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // positionDataGridViewTextBoxColumn
+            // 
+            positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
+            positionDataGridViewTextBoxColumn.HeaderText = "Position";
+            positionDataGridViewTextBoxColumn.MinimumWidth = 8;
+            positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            positionDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // salaryDataGridViewTextBoxColumn
+            // 
+            salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
+            salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
+            salaryDataGridViewTextBoxColumn.MinimumWidth = 8;
+            salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            salaryDataGridViewTextBoxColumn.Width = 150;
             // 
             // EmployeeForm
             // 
@@ -357,12 +366,6 @@
         private System.Windows.Forms.Button deleteBtn;
         private Button updateBtn;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn secondNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn familyNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
         private BindingSource employeeBindingSource;
         private Label label1;
         private TextBox excursionIdTxtBox;
@@ -370,5 +373,12 @@
         private Button showAllExcursions;
         private ListBox excursionsListBox;
         private BindingSource employeeContextBindingSource;
+        private DataGridViewTextBoxColumn EmployeeId;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn secondNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn familyNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
     }
 }
